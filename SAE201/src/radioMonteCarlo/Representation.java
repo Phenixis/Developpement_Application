@@ -17,15 +17,20 @@ public class Representation {
         
     }
     
-    public Representation(Representation ancienne, Spectacle nouveauSpectacle) {
-    	
+    public void Representation(Representation ancienne, Spectacle nouveauSpectacle) {
+    	this.jour=ancienne.jour;
+    	this.heure=ancienne.heure;
+    	this.annulee=ancienne.annulee;
+    	this.nbBilletVendu=ancienne.nbBilletVendu;
+    	this.spectacle=nouveauSpectacle;
+    		
     }
 
    public void ajoutSpectacle(Spectacle spectacle) {
 	   if(this.spectacle==null) {
 		   this.spectacle =spectacle;
 	   }else {
-		   Representation(spectacle);
+		   Representation(this,spectacle);
 	   }
 	   
    }
