@@ -1,6 +1,9 @@
 package radioMonteCarlo;
 
+import java.util.ArrayList;
+
 public class Representation {
+	static public ArrayList<Representation> list = new ArrayList<>();
 
     private String jour;
     private String heure;
@@ -15,14 +18,18 @@ public class Representation {
         this.annulee = annulee;
         this.nbBilletVendu = nbBilletVendu;
         
+        Representation.list.add(this);
     }
     
-    public void Representation(Representation ancienne, Spectacle nouveauSpectacle) {
-    	this.jour=ancienne.jour;
-    	this.heure=ancienne.heure;
-    	this.annulee=ancienne.annulee;
-    	this.nbBilletVendu=ancienne.nbBilletVendu;
-    	this.spectacle=nouveauSpectacle;
+    public Representation(String jour, String heure, boolean annulee, int nbBilletVendu, Spectacle spectacle) {
+    	this(jour, heure, annulee, nbBilletVendu);
+    	
+    	this.ajoutSpectacle(spectacle);
+    }
+
+    
+    public Representation(Representation ancienne, Spectacle nouveauSpectacle) {
+    	this(ancienne.jour, ancienne.heure, ancienne.annulee, ancienne.nbBilletVendu, nouveauSpectacle);
     		
     }
 
@@ -30,7 +37,7 @@ public class Representation {
 	   if(this.spectacle==null) {
 		   this.spectacle =spectacle;
 	   }else {
-		   Representation(this,spectacle);
+		   new Representation(this,spectacle);
 	   }
 	   
    }
