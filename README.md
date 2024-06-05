@@ -10,3 +10,10 @@ Lot 7 :
         - le nombre de billets vendus par représentation et le total par spectacle.
 
 Prévoir de filtrer et trier ce rapport sur le nom du spectacle OU la date de représentation.
+
+
+/!\ : une ligne du tableau doit concerner une représentation ou un spectacle ?
+
+/!\ : Pourquoi est-ce qu'on affiche pas les dates de représentations ?
+
+/!\ : Pourquoi est-ce qu'on affiche l'année courante ?
