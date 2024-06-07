@@ -52,10 +52,37 @@ public class Spectacle {
 	public void setNbreMaxSpect(int nbreMaxSpect) {
 		this.nbreMaxSpect = nbreMaxSpect;
 	}
+	
     
 	
+	public ArrayList<Representation> getListeRepresentations() {
+		return listeRepresentations;
+	}
+
+	public void setListeRepresentations(ArrayList<Representation> listeRepresentations) {
+		this.listeRepresentations = listeRepresentations;
+	}
+
+	public Information getInformation() {
+		return information;
+	}
+
+	public void setInformation(Information information) {
+		this.information = information;
+	}
+
+	public ArrayList<Artiste> getListeArtiste() {
+		return listeArtiste;
+	}
+
+	public void setListeArtiste(ArrayList<Artiste> listeArtiste) {
+		this.listeArtiste = listeArtiste;
+	}
+
 	public void ajoutRepresentation(Representation representation){
 		this.listeRepresentations.add(representation);
+		representation.ajoutSpectacle(this);
+		information.misajour(representation);
 	}
 	
 	public void retirerRepresentation(Representation representation) {
