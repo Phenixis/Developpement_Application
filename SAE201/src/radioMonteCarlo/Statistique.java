@@ -1,36 +1,22 @@
 package radioMonteCarlo;
 
+import java.util.ArrayList;
+
 public class Statistique {
-
-    private List<Information> informations;
-
+	
+    ArrayList<Information> listeInfo=new ArrayList<>();
+    
+    
+    
     public Statistique() {
-        this.informations = new ArrayList<>();
+		
+	}
+
+
+
+	public void ajoutInformation(Information info) {
+    	listeInfo.add(info);
     }
 
-    public void trierParNom() {
-        Collections.sort(informations, new Comparator<Information>() {
-            @Override
-            public int compare(Information information1, Information information2) {
-                return information1.getNom().compareTo(information2.getNom());
-            }
-        });
-    }
 
-    public void trierParDate() {
-        Collections.sort(informations, new Comparator<Information>() {
-            @Override
-            public int compare(Information information1, Information information2) {
-                return information1.getAnnee().compareTo(information2.getAnnee());
-            }
-        });
-    }
-
-    public List<Information> getInformations() {
-        return informations;
-    }
-
-    public void setInformations(List<Information> informations) {
-        this.informations = informations;
-    }
 }
