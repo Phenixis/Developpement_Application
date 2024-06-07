@@ -34,7 +34,7 @@
                   <VBox fx:id="easterEgg" onMouseClicked="#clicEasterEgg" prefHeight="10.0" prefWidth="10.0" />
                </children>
             </HBox>
-            <Button fx:id="bnQuitter" alignment="CENTER" mnemonicParsing="false" onAction="#clicQuitter" prefWidth="80.0" text="Quitter" />
+            <Button fx:id="bnQuitter" alignment="CENTER" cancelButton="true" mnemonicParsing="false" onAction="#clicQuitter" prefWidth="80.0" text="Quitter" />
          </children>
       </HBox>
    </children>

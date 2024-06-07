@@ -5,10 +5,9 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1100.0" spacing="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1100.0" spacing="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="radioMonteCarlo.view.CtrlStatistiques">
    <children>
-      <TableView prefHeight="200.0" prefWidth="200.0">
+      <TableView fx:id="listStatistiques" prefHeight="200.0" prefWidth="200.0">
         <columns>
           <TableColumn minWidth="-Infinity" prefWidth="224.0" text="Nom du Spectacle" />
           <TableColumn prefWidth="93.0" resizable="false" text="Annee" />
@@ -19,14 +18,14 @@
       </TableView>
       <HBox alignment="CENTER" spacing="10.0">
          <children>
-            <Button mnemonicParsing="false" prefWidth="250.0" text="Tri par Spectacle" />
-            <Button mnemonicParsing="false" prefWidth="250.0" text="Tri par date" />
+            <Button fx:id="bnTriSpectacle" mnemonicParsing="false" onAction="#clicTriSpectacle" prefWidth="250.0" text="Tri par Spectacle" />
+            <Button fx:id="bnTriDate" mnemonicParsing="false" onAction="#clicTriDate" prefWidth="250.0" text="Tri par date" />
          </children>
       </HBox>
       <HBox alignment="CENTER_RIGHT" spacing="10.0">
          <children>
-            <Button mnemonicParsing="false" prefWidth="80.0" text="Valider" />
-            <Button mnemonicParsing="false" prefWidth="80.0" text="Annuler" />
+            <Button fx:id="bnValider" defaultButton="true" mnemonicParsing="false" onAction="#clicValider" prefWidth="80.0" text="Valider" />
+            <Button fx:id="bnAnnuler" cancelButton="true" mnemonicParsing="false" onAction="#clicAnnuler" prefWidth="80.0" text="Annuler" />
          </children>
       </HBox>
    </children>
