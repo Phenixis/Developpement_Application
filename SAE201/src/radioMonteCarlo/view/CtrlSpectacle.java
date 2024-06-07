@@ -12,13 +12,17 @@ public class CtrlSpectacle {
 
     @FXML private ImageView imageScene;
 
-    @FXML private Button bnDroite;
+    @FXML
+    private Button bnDroite;
 
-    @FXML private TextField txtTarifBalcon;
+    @FXML
+    private TextField txtTarifBalcon;
 
-    @FXML private Button bnGauche;
+    @FXML
+    private Button bnGauche;
 
-    @FXML private ListView<?> listViewArtistesSelectionnés;
+    @FXML
+    private ListView<?> listViewArtistesSelectionnés;
 
     @FXML
     private Button bnValider;
@@ -44,7 +48,8 @@ public class CtrlSpectacle {
     @FXML
     private TextField txtNom;
 
-    @FXML private ChoiceBox<?> cbGenre;
+    @FXML
+    private ChoiceBox<?> cbGenre;
 
     @FXML
     void clicDroite(ActionEvent event) {
@@ -67,3 +72,4 @@ public class CtrlSpectacle {
     }
 
 }
+

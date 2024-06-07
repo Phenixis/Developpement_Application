@@ -7,17 +7,17 @@ import javafx.scene.layout.Pane;
 import javafx.fxml.FXMLLoader;
 
 
-public class FenRepresentation extends Stage {
+public class FenAccueil extends Stage {
 	
-	public FenRepresentation() throws IOException {
-		this.setTitle("Nouvelle représentation");
+	public FenAccueil() throws IOException {
+		this.setTitle("Accueil");
 		Scene laScene = new Scene(creerSceneGraph());
 		this.setScene(laScene);
 	}
 
 	private Pane creerSceneGraph() throws IOException {
      	FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/creationRepresentation.fxml"));
+        loader.setLocation(getClass().getResource("/Accueil.fxml"));
         Pane root = loader.load();
         loader.getController();
      	return root;
