@@ -12,12 +12,13 @@ public class Representation {
     private Spectacle spectacle;
     private Information information;
 
+    // Constructeurs
+    
     public Representation(String jour, String heure, boolean annulee, int nbBilletVendu) {
         this.jour = jour;
         this.heure = heure;
         this.annulee = false;
         this.nbBilletVendu = nbBilletVendu;
-        
         
         Representation.list.add(this);
         
@@ -30,20 +31,11 @@ public class Representation {
     }
 
     
-    public Representation(Representation ancienne, Spectacle nouveauSpectacle) {
+    private Representation(Representation ancienne, Spectacle nouveauSpectacle) {
     	this(ancienne.jour, ancienne.heure, ancienne.annulee, ancienne.nbBilletVendu, nouveauSpectacle);		
     }
     
-    public void remplacer(Spectacle nouveauSpectacle) {
-    	this.annulee = true;
-    	new Representation(this, nouveauSpectacle);
-    }
-    
-    public void annuler() {
-    	this.annulee=true;
-    }
-    
-    
+    // Fonctions Bas Niveau
 
    public static ArrayList<Representation> getList() {
 		return list;
@@ -96,11 +88,20 @@ public class Representation {
 	}
 
 	public void ajoutSpectacle(Spectacle spectacle) {
-	this.spectacle =spectacle;
-	spectacle.ajoutRepresentation(this);
+		this.spectacle =spectacle;
+		spectacle.ajoutRepresentation(this);
 	}
    
    public void ajoutInformation(Information information) {
 	   this.information=information;
+   }
+   
+   public void remplacer(Spectacle nouveauSpectacle) {
+   	this.annulee = true;
+   	new Representation(this, nouveauSpectacle);
+   }
+   
+   public void annuler() {
+   	this.annulee=true;
    }
 }

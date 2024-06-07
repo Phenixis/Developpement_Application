@@ -7,12 +7,10 @@ public class Information {
     private int nbRepresentation=0;
     private int totalBilletVendu=0;
     private Spectacle spectacle;
-    private Statistique stat;
-	public Information(Spectacle spectacle,Statistique stat) {
+    
+	public Information(Spectacle spectacle) {
 		this.spectacle=spectacle;
 		spectacle.ajoutInformation(this);
-		this.stat=stat;
-		stat.ajoutInformation(this);
 		
 		this.nomSpectacle=this.spectacle.getNom();
 	}

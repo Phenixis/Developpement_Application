@@ -3,6 +3,7 @@ package radioMonteCarlo;
 import java.util.ArrayList;
 
 public class Spectacle {
+	static public ArrayList<Spectacle> list = new ArrayList<>();
 
     private String nom;
     private int duree;
@@ -17,8 +18,7 @@ public class Spectacle {
         this.duree = duree;
         this.genre = genre;
         this.nbreMaxSpect = nbreMaxSpect;
-        
-        
+        this.information = new Information(this);
         
     }
 

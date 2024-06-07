@@ -4,19 +4,14 @@ import java.util.ArrayList;
 
 public class Statistique {
 	
-    ArrayList<Information> listeInfo=new ArrayList<>();
-    
-    
-    
-    public Statistique() {
+	
+	private Statistique() {
 		
 	}
-
-
-
-	public void ajoutInformation(Information info) {
-    	listeInfo.add(info);
-    }
+	
+	static Statistique calculerStats() {
+		
+	}
 
 
 }
