@@ -15,11 +15,12 @@ public class Representation {
     public Representation(String jour, String heure, boolean annulee, int nbBilletVendu) {
         this.jour = jour;
         this.heure = heure;
-        this.annulee = annulee;
+        this.annulee = false;
         this.nbBilletVendu = nbBilletVendu;
         
         
         Representation.list.add(this);
+        
     }
     
     public Representation(String jour, String heure, boolean annulee, int nbBilletVendu, Spectacle spectacle) {
@@ -30,8 +31,16 @@ public class Representation {
 
     
     public Representation(Representation ancienne, Spectacle nouveauSpectacle) {
-    	this(ancienne.jour, ancienne.heure, ancienne.annulee, ancienne.nbBilletVendu, nouveauSpectacle);
-    		
+    	this(ancienne.jour, ancienne.heure, ancienne.annulee, ancienne.nbBilletVendu, nouveauSpectacle);		
+    }
+    
+    public void remplacer(Spectacle nouveauSpectacle) {
+    	this.annulee = true;
+    	new Representation(this, nouveauSpectacle);
+    }
+    
+    public void annuler() {
+    	this.annulee=true;
     }
     
     
@@ -60,13 +69,7 @@ public class Representation {
 		this.heure = heure;
 	}
 
-	public boolean isAnnulee() {
-		return annulee;
-	}
-
-	public void setAnnulee(boolean annulee) {
-		this.annulee = annulee;
-	}
+	
 
 	public int getNbBilletVendu() {
 		return nbBilletVendu;
@@ -92,14 +95,10 @@ public class Representation {
 		this.information = information;
 	}
 
-public void ajoutSpectacle(Spectacle spectacle) {
-	   if(this.spectacle==null) {
-		   this.spectacle =spectacle;
-	   }else {
-		   new Representation(this,spectacle);
-	   }
-	   
-   }
+	public void ajoutSpectacle(Spectacle spectacle) {
+	this.spectacle =spectacle;
+	spectacle.ajoutRepresentation(this);
+	}
    
    public void ajoutInformation(Information information) {
 	   this.information=information;

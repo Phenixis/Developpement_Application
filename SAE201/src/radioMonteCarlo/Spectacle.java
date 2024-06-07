@@ -16,7 +16,8 @@ public class Spectacle {
         this.nom = nom;
         this.duree = duree;
         this.genre = genre;
-        this.nbreMaxSpect = nbreMaxSpect; 
+        this.nbreMaxSpect = nbreMaxSpect;
+        
         
         
     }
@@ -82,10 +83,11 @@ public class Spectacle {
 	public void ajoutRepresentation(Representation representation){
 		this.listeRepresentations.add(representation);
 		representation.ajoutSpectacle(this);
-		information.misajour(representation);
+		
+		this.information.misajour(representation);
 	}
 	
-	public void retirerRepresentation(Representation representation) {
+	public void removeRepresentation(Representation representation) {
 		if(this.listeRepresentations.size()!=1) {
 		    if (this.listeRepresentations.contains(representation)) {
 		        this.listeRepresentations.remove(representation);
