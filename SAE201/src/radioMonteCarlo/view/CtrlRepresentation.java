@@ -1,27 +1,25 @@
 package radioMonteCarlo.view;
 
+import java.util.Date;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
+import radioMonteCarlo.Spectacle;
 
 public class CtrlRepresentation {
 
-    @FXML
-    private ChoiceBox<?> cbSpectacle;
+    @FXML private ChoiceBox<Spectacle> cbSpectacle;
 
-    @FXML
-    private ChoiceBox<?> cbHeure;
+    @FXML private ChoiceBox<Date> cbHeure;
 
-    @FXML
-    private Button bnValider;
+    @FXML private Button bnValider;
 
-    @FXML
-    private Button bnAnnuler;
+    @FXML private Button bnAnnuler;
 
-    @FXML
-    private DatePicker dpJour;
+    @FXML private DatePicker dpJour;
 
     @FXML
     void clicValider(ActionEvent event) {
@@ -34,3 +32,4 @@ public class CtrlRepresentation {
     }
 
 }
+
