@@ -18,6 +18,7 @@ public class Representation {
         this.annulee = annulee;
         this.nbBilletVendu = nbBilletVendu;
         
+        
         Representation.list.add(this);
     }
     
@@ -32,8 +33,66 @@ public class Representation {
     	this(ancienne.jour, ancienne.heure, ancienne.annulee, ancienne.nbBilletVendu, nouveauSpectacle);
     		
     }
+    
+    
 
-   public void ajoutSpectacle(Spectacle spectacle) {
+   public static ArrayList<Representation> getList() {
+		return list;
+	}
+
+	public static void setList(ArrayList<Representation> list) {
+		Representation.list = list;
+	}
+
+	public String getJour() {
+		return jour;
+	}
+
+	public void setJour(String jour) {
+		this.jour = jour;
+	}
+
+	public String getHeure() {
+		return heure;
+	}
+
+	public void setHeure(String heure) {
+		this.heure = heure;
+	}
+
+	public boolean isAnnulee() {
+		return annulee;
+	}
+
+	public void setAnnulee(boolean annulee) {
+		this.annulee = annulee;
+	}
+
+	public int getNbBilletVendu() {
+		return nbBilletVendu;
+	}
+
+	public void setNbBilletVendu(int nbBilletVendu) {
+		this.nbBilletVendu = nbBilletVendu;
+	}
+
+	public Spectacle getSpectacle() {
+		return spectacle;
+	}
+
+	public void setSpectacle(Spectacle spectacle) {
+		this.spectacle = spectacle;
+	}
+
+	public Information getInformation() {
+		return information;
+	}
+
+	public void setInformation(Information information) {
+		this.information = information;
+	}
+
+public void ajoutSpectacle(Spectacle spectacle) {
 	   if(this.spectacle==null) {
 		   this.spectacle =spectacle;
 	   }else {
