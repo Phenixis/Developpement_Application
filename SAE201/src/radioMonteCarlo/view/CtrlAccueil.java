@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
+import radioMonteCarlo.controller.main;
 
 public class CtrlAccueil {
 
@@ -24,17 +25,17 @@ public class CtrlAccueil {
 
     @FXML
     void clicRepresentation(ActionEvent event) {
-
+    	main.ouvrirRepresentation();
     }
 
     @FXML
     void clicSpectacle(ActionEvent event) {
-
+    	main.ouvrirSpectacle();
     }
 
     @FXML
     void clicStatistiques(ActionEvent event) {
-
+    	main.ouvrirStatistiques();
     }
 
     @FXML
@@ -44,7 +45,7 @@ public class CtrlAccueil {
 
     @FXML
     void clicQuitter(ActionEvent event) {
-
+    	main.fermerAppli();
     }
 
 }
