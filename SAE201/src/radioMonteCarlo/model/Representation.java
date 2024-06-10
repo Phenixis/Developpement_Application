@@ -1,6 +1,7 @@
 package radioMonteCarlo.model;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Representation {
 	static public ArrayList<Representation> list = new ArrayList<>();
@@ -12,6 +13,10 @@ public class Representation {
     private Spectacle spectacle;
 
     // Constructeurs
+    
+    public Representation(String date, String heure, boolean annulee) {
+    	this(date, heure, annulee, new Random().nextInt(500));
+    }
     
     public Representation(String date, String heure, boolean annulee, int nbBilletVendu) {
         this.date = date;
