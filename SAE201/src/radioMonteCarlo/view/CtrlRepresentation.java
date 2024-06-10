@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
+import radioMonteCarlo.model.Heure;
 import radioMonteCarlo.model.Representation;
 import radioMonteCarlo.model.Spectacle;
 import radioMonteCarlo.controller.main;
@@ -43,7 +44,20 @@ public class CtrlRepresentation {
     			then(true).otherwise(false)
     			);
     	cbSpectacle.getItems().add(oui);
-    	cbHeure.getItems().add("18h");
+    	
+    	cbHeure.disableProperty().bind(
+    			Bindings.when(Bindings.or(cbSpectacle.valueProperty().isNull(), dpJour.armedProperty())).
+    			then(true).otherwise(false)
+    			);
+    	
+    	
+    	
+    	for (int temps = 15; temps <= 3*60; temps+=15) {
+    		System.out.println(temps);
+    		if (true) { // vérifier la disponibilité par rapport à la date
+    			cbHeure.getItems().add(Heure.intToString(temps));    			
+    		}
+    	}
     }
     
     
