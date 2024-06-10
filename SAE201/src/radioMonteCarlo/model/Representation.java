@@ -15,7 +15,7 @@ public class Representation {
     // Constructeurs
     
     public Representation(String date, String heure, boolean annulee) {
-    	this(date, heure, annulee, new Random().nextInt(480 	));
+    	this(date, heure, annulee, new Random().nextInt(480));
     }
     
     public Representation(String date, String heure, boolean annulee, int nbBilletVendu) {
@@ -66,10 +66,6 @@ public class Representation {
 		return nbBilletVendu;
 	}
 
-	private void setNbBilletVendu(int nbBilletVendu) {
-		this.nbBilletVendu = nbBilletVendu;
-	}
-
 	public Spectacle getSpectacle() {
 		return spectacle;
 	}
@@ -87,10 +83,8 @@ public class Representation {
     	this.annulee=true;
     }
 
-	@Override
 	public String toString() {
-		return "Representation [date=" + date + ", heure=" + heure + ", annulee=" + annulee + ", nbBilletVendu="
-				+ nbBilletVendu + ", spectacle=" + spectacle + "]";
+		return this.spectacle.toString() + " " + this.date + " " + this.heure;
 	}
     
     
