@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import radioMonteCarlo.model.Artiste;
 import radioMonteCarlo.controller.main;
+import radioMonteCarlo.model.Genre;
 
 public class CtrlSpectacle {
 
@@ -60,6 +61,8 @@ public class CtrlSpectacle {
     		Bindings.when(manque).
     		then(true).otherwise(false)
     	);	
+    	
+    	cbGenre.getItems().addAll(Genre.liste);
     }
 
 }

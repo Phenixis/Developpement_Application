@@ -37,7 +37,7 @@
             <HBox alignment="CENTER_LEFT" spacing="10.0">
                <children>
                   <Label text="Genre :" />
-                  <ChoiceBox fx:id="cbGenre" prefHeight="25.0" prefWidth="100.0" />
+                  <ChoiceBox fx:id="cbGenre" prefHeight="25.0" prefWidth="125.0" />
                </children>
             </HBox>
          </children>
