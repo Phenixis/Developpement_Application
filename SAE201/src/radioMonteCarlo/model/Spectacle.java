@@ -52,8 +52,6 @@ public class Spectacle {
 		this.nbreMaxSpect = nbreMaxSpect;
 	}
 	
-    
-	
 	public ArrayList<Representation> getListeRepresentations() {
 		return listeRepresentations;
 	}
@@ -116,8 +114,9 @@ public class Spectacle {
 		}	
 	}
 	
-	
-	
+	public void ajoutInformation(Information information){
+		this.information=information;
+	}
 	
 	public void ajoutArtiste(Artiste artiste){
 		this.listeArtiste.add(artiste);
@@ -134,12 +133,4 @@ public class Spectacle {
 			System.out.println("Erreur : minimum 1 artiste");
 		}	
 	}
-	
-	
-	
-    
-	
-	
-
-    
 }
