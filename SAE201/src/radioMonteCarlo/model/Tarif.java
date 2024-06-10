@@ -1,8 +1,5 @@
 package radioMonteCarlo.model;
 
-import java.util.Collection;
-import java.util.HashMap;
-
 public class Tarif {
 	Spectacle spectacle;
 	Zone zone;
