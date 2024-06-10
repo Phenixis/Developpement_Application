@@ -25,7 +25,7 @@
                   <Label text="Nom :" />
                   <TextField fx:id="txtNom" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" />
                   <Label text="Durée :" />
-                  <TextField fx:id="txtDuree" prefHeight="25.0" prefWidth="100.0" />
+                  <ChoiceBox fx:id="cbDuree" prefHeight="25.0" prefWidth="125.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="10.0">
