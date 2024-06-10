@@ -4,7 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
-import radioMonteCarlo.Statistique;
+import radioMonteCarlo.model.Statistique;
 import radioMonteCarlo.controller.main;
 
 public class CtrlStatistiques {

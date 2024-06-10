@@ -7,7 +7,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import radioMonteCarlo.Artiste;
+import radioMonteCarlo.model.Artiste;
 import radioMonteCarlo.controller.main;
 
 public class CtrlSpectacle {
