@@ -12,6 +12,7 @@ import javafx.scene.image.ImageView;
 import radioMonteCarlo.model.Artiste;
 import radioMonteCarlo.controller.main;
 import radioMonteCarlo.model.Genre;
+import radioMonteCarlo.model.Heure;
 
 public class CtrlSpectacle {
 
@@ -52,7 +53,7 @@ public class CtrlSpectacle {
     	txtTarifOrchestre.setText("");
     	txtTarifLoges.setText("");
     	txtNom.setText("");
-    	txt.setText("");
+    	txtNbSpec.setText("");
     	cbDuree.setValue("1h30");
     	cbGenre.setValue("");
     	
@@ -76,6 +77,10 @@ public class CtrlSpectacle {
     	);	
     	
     	cbGenre.getItems().addAll(Genre.liste);
+    	/*for (int temps = 0; temps < 3*60; demiheure+=15) {
+    		Heure.intToString(demiheure);
+    	}*/
+    	cbDuree.getItems().addAll("0:15","0:30","0:45","1:00","1:15","1:30");
     	
     }
     

@@ -15,14 +15,16 @@ import radioMonteCarlo.controller.main;
 public class CtrlRepresentation {
 
     @FXML private ChoiceBox<Spectacle> cbSpectacle;
-    @FXML private ChoiceBox<Date> cbHeure;
+    @FXML private ChoiceBox<String> cbHeure;
     @FXML private Button bnValider;
     @FXML private Button bnAnnuler;
     @FXML private DatePicker dpJour;
     Spectacle oui = new Spectacle("oui",10,"ui",10);
-    Date non = new Date();
+    
     @FXML
     void clicValider(ActionEvent event) {
+    	Representation rep = new Representation(dpJour.getValue().toString(), cbHeure.getValue(), false,cbSpectacle.getValue());
+    	System.out.println(rep);
     }
 
     @FXML
@@ -41,7 +43,7 @@ public class CtrlRepresentation {
     			then(true).otherwise(false)
     			);
     	cbSpectacle.getItems().add(oui);
-    	cbHeure.getItems().add(non);
+    	cbHeure.getItems().add("18h");
     }
     
     
