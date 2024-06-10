@@ -13,7 +13,7 @@ public class Heure {
 	
 	static public String intToString(int heure) {
 		// heure = 90, return = "01:30"
-		int nbHeure = (int) (Heure.intToMin(heure)*60);
+		int nbHeure = (int) (Heure.intToMin(heure));
 		
 		return "" + nbHeure + ":" + (heure-(nbHeure*60));
 	}
