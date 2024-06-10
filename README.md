@@ -13,8 +13,4 @@ Prévoir de filtrer et trier ce rapport sur le nom du spectacle OU la date de re
 
 ## A faire
 
-vider les valeurs après validation/quittation du formulaire
-
 faire des exceptions
-
-Créer une classe Heure et un attribut durée dans Spectacle
