@@ -20,8 +20,7 @@ public class CtrlAccueil {
     @FXML
     private Button bnSpectacle;
 
-    @FXML
-    private VBox easterEgg;
+    @FXML private VBox easterEgg;
 
     @FXML
     void clicRepresentation(ActionEvent event) {

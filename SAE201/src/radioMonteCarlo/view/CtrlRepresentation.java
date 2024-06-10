@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import radioMonteCarlo.Spectacle;
+import radioMonteCarlo.controller.main;
 
 public class CtrlRepresentation {
 
@@ -28,7 +29,7 @@ public class CtrlRepresentation {
 
     @FXML
     void clicAnnuler(ActionEvent event) {
-
+    	main.fermerRepresentation();
     }
 
 }
