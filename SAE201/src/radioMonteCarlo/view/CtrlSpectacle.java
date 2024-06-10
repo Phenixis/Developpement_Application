@@ -57,8 +57,6 @@ public class CtrlSpectacle {
     	cbDuree.setValue(null);
     	cbGenre.setValue(null);
     	
-    	
-    	
     	BooleanBinding manque = Bindings.or(
     		Bindings.or(
     			Bindings.or(
@@ -77,7 +75,7 @@ public class CtrlSpectacle {
     	);	
     	
     	cbGenre.getItems().addAll(Genre.liste);
-    	for (int temps = 0; temps < 3*60; temps+=15) {
+    	for (int temps = 15; temps <= 3*60; temps+=15) {
     		System.out.println(temps);
     		cbDuree.getItems().add(Heure.intToString(temps));
     	}
