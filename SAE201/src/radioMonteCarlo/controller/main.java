@@ -39,4 +39,28 @@ public class main extends Application {
 	public static void ouvrirSpectacle() {
 		fSpectacle.show();
 	}
+	
+	public static void ouvrirRepresentation() {
+		fRepresentation.show();
+	}
+	
+	public static void ouvrirStatistiques() {
+		fStatistiques.show();
+	}
+	
+	public static void fermerSpectacle() {
+		fSpectacle.close();
+	}
+	
+	public static void fermerRepresentation() {
+		fRepresentation.close();
+	}
+	
+	public static void fermerStatistiques() {
+		fStatistiques.close();
+	}
+	
+	public static void fermerAppli() {
+		System.exit(0);
+	}
 }

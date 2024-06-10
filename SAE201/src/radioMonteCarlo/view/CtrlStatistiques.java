@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import radioMonteCarlo.Statistique;
+import radioMonteCarlo.controller.main;
 
 public class CtrlStatistiques {
 
@@ -12,13 +13,10 @@ public class CtrlStatistiques {
     private Button bnTriDate;
 
     @FXML
-    private Button bnValider;
-
-    @FXML
     private Button bnTriSpectacle;
 
     @FXML
-    private Button bnAnnuler;
+    private Button bnOk;
 
     @FXML
     private TableView<Statistique> listStatistiques;
@@ -34,13 +32,8 @@ public class CtrlStatistiques {
     }
 
     @FXML
-    void clicValider(ActionEvent event) {
-
-    }
-
-    @FXML
-    void clicAnnuler(ActionEvent event) {
-
+    void clicOk(ActionEvent event) {
+    	main.fermerStatistiques();
     }
 
 }
