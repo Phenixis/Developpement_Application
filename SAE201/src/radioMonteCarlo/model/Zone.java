@@ -1,4 +1,4 @@
-package radioMonteCarlo;
+package radioMonteCarlo.model;
 
 public class Zone {
 

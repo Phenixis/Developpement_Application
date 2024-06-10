@@ -1,4 +1,4 @@
-package radioMonteCarlo;
+package radioMonteCarlo.model;
 
 import java.util.ArrayList;
 
