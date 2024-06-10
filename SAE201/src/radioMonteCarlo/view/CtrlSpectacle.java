@@ -49,13 +49,13 @@ public class CtrlSpectacle {
     }
     
     public void initialize() {
-    	txtTarifBalcon.setText("");
-    	txtTarifOrchestre.setText("");
-    	txtTarifLoges.setText("");
-    	txtNom.setText("");
-    	txtNbSpec.setText("");
-    	cbDuree.setValue("");
-    	cbGenre.setValue("");
+    	txtTarifBalcon.setText(null);
+    	txtTarifOrchestre.setText(null);
+    	txtTarifLoges.setText(null);
+    	txtNom.setText(null);
+    	txtNbSpec.setText(null);
+    	cbDuree.setValue(null);
+    	cbGenre.setValue(null);
     	
     	
     	
