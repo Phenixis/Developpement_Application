@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Representation {
 	static public ArrayList<Representation> list = new ArrayList<>();
 	
-    private String jour;
+    private String date;
     private String heure;
     private boolean annulee;
     private int nbBilletVendu;
@@ -13,8 +13,8 @@ public class Representation {
 
     // Constructeurs
     
-    public Representation(String jour, String heure, boolean annulee, int nbBilletVendu) {
-        this.jour = jour;
+    public Representation(String date, String heure, boolean annulee, int nbBilletVendu) {
+        this.date = date;
         this.heure = heure;
         this.annulee = false;
         this.nbBilletVendu = nbBilletVendu;
@@ -23,24 +23,24 @@ public class Representation {
         
     }
     
-    public Representation(String jour, String heure, boolean annulee, int nbBilletVendu, Spectacle spectacle) {
-    	this(jour, heure, annulee, nbBilletVendu);
+    public Representation(String date, String heure, boolean annulee, int nbBilletVendu, Spectacle spectacle) {
+    	this(date, heure, annulee, nbBilletVendu);
     	
     	this.setSpectacle(spectacle);
     }
     
     private Representation(Representation ancienne, Spectacle nouveauSpectacle) {
-    	this(ancienne.jour, ancienne.heure, ancienne.annulee, ancienne.nbBilletVendu, nouveauSpectacle);		
+    	this(ancienne.date, ancienne.heure, ancienne.annulee, ancienne.nbBilletVendu, nouveauSpectacle);		
     }
     
     // Fonctions Bas Niveau
 
-	public String getJour() {
-		return jour;
+	public String getDate() {
+		return date;
 	}
 
-	public void setJour(String jour) {
-		this.jour = jour;
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 	public String getHeure() {
