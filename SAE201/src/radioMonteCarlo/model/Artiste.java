@@ -3,6 +3,8 @@ package radioMonteCarlo.model;
 import java.util.ArrayList;
 
 public class Artiste {
+	static public ArrayList<Artiste> liste = new ArrayList<>();
+	
 	String nom;
 	
 	// Relation avec Spectacle
@@ -10,6 +12,8 @@ public class Artiste {
 	
 	public Artiste(String nom) {
 		this.nom = nom;
+		
+		Artiste.liste.add(this);
 	}
 	
 	public String getNom() {
@@ -34,23 +38,28 @@ public class Artiste {
 		this.listeSpectacle.remove(spectacle);
 	}
 	
-	public void retirerSpectacle(Spectacle spectacle) {
+	public boolean retirerSpectacle(Spectacle spectacle) {
 		if(this.listeSpectacle.size()!=1) {
 		    if (this.contientSpectacle(spectacle)) {
 		        this.removeSpectacle(spectacle);
+		        spectacle.removeArtiste(this);
+		        return true;
 		    } else {
 		        System.out.println("Erreur : Spectacle spécifié n'est pas présent dans la liste.");
 		    }
 		} else {
 			System.out.println("Erreur : il faut au moins 1 spectacle");
 		}	
+		return false;
 	}
 	
-	public void ajouterSpectacle(Spectacle spectacle) {
+	public boolean ajouterSpectacle(Spectacle spectacle) {
 		if (this.contientSpectacle(spectacle)) {
 			System.out.println("Erreur : L'artiste joue déjà dans le spectacle.");
+			return false;
 		} else {
 			this.addSpectacle(spectacle);
+			return true;
 		}
 	}
 }

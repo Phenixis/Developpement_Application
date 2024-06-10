@@ -103,27 +103,24 @@ public class Spectacle {
 		this.listeArtiste.remove(artiste);
 	}
 
-	public void ajoutArtiste(Artiste artiste) {
+	public boolean ajoutArtiste(Artiste artiste) {
 		this.addArtiste(artiste);
+		return true;
 	}
 
-	public void retirerArtiste(Artiste artiste) {
+	public boolean retirerArtiste(Artiste artiste) {
 		if (this.listeArtiste.size() != 1) {
 			if (this.listeArtiste.contains(artiste)) {
-				this.removeArtiste(artiste);
+				if (artiste.retirerSpectacle(this)) {
+					this.removeArtiste(artiste);
+					return true;
+				}
 			} else {
-				System.out.println("Erreur : artiste spécifié n'est pas présent dans la liste.");
+				System.out.println("Erreur : l'artiste spécifié n'est pas présent dans la liste.");
 			}
 		} else {
-			System.out.println("Erreur : minimum 1 artiste");
+			System.out.println("Erreur : il doit y avoir au minimum 1 artiste");
 		}
+		return false;
 	}
-	
-	
-	
-    
-	
-	
-
-    
 }
