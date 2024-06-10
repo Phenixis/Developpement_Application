@@ -3,37 +3,42 @@ package radioMonteCarlo.model;
 import java.util.ArrayList;
 
 public class Statistique {
-	Spectacle spectacle;
-	private String nomSpectacle;
-	private int nbRepresentation=0;
-	private int nbBillet=0;
-	private float moyBillet=0;
-	
-	private Statistique(Spectacle spectacle) {
-
-		this.nomSpectacle=spectacle.getNom();
-		this.nbRepresentation=spectacle.getListeRepresentations().size();
-		this.nbBillet=nombreBillet(spectacle);
-		this.moyBillet=moyenneBillet(spectacle);
-	}
-	
 	static Statistique calculerStats(Spectacle spec) {
 		return new Statistique(spec);
 	}
-
 	
+	Spectacle spectacle;
+	private String nomSpectacle; // valeur récupérée
+	private int nbRepresentation; // valeur récupérée
+	private int nbBillet=0; // valeur calculée
+	private float moyBillet=0; // valeur calculée
+	
+	private Statistique(Spectacle spectacle) {
+		this.nomSpectacle=spectacle.getNom();
+		
+		this.update();
+		
+		this.moyBillet=moyenneBillet(spectacle);
+	}
+	
+	public void update() {
+		this.nbRepresentation=spectacle.getRepresentations().size();
+		this.nbBillet=nombreBillet(spectacle);
+	}
+
 	private int nombreBillet(Spectacle spectacle){
 		int nb=0;
-		for(Representation i : spectacle.getListeRepresentations() ){
+		
+		for(Representation i : spectacle.getRepresentations()){
 			nb+=i.getNbBilletVendu();
 		}
+		
 		return nb;
 	}	
 
 	private int moyenneBillet(Spectacle spectacle){
-		int nb=0;
-		nb=nbBillet/nbRepresentation;
-		return nb;
+		this.update();
+		return nbBillet/nbRepresentation;
 	
 	}
 
