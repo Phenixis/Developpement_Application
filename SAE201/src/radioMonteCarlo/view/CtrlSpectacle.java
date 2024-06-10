@@ -46,11 +46,14 @@ public class CtrlSpectacle {
     }
     
     public void initialize() {
-    	BooleanBinding manque = Bindings.and(
-    		Bindings.and(txtTarifLoges.textProperty().isEmpty()
-    					,txtDuree.textProperty().isEmpty())
-    		,Bindings.and(txtTarifOrchestre.textProperty().isEmpty()
-    					,txtNbSpec.textProperty().isEmpty())
+    	BooleanBinding manque = Bindings.or(
+    		Bindings.or(
+    			Bindings.or(txtTarifLoges.textProperty().isEmpty()
+    				,txtDuree.textProperty().isEmpty())
+    			,Bindings.or(txtTarifOrchestre.textProperty().isEmpty()
+    				,txtNbSpec.textProperty().isEmpty())
+    		),Bindings.or(txtTarifBalcon.textProperty().isEmpty()
+    			,txtNom.textProperty().isEmpty())
     	);
     	
     	bnValider.disableProperty().bind(
