@@ -42,7 +42,6 @@ public class Artiste {
 		if(this.listeSpectacle.size()!=1) {
 		    if (this.contientSpectacle(spectacle)) {
 		        this.removeSpectacle(spectacle);
-		        spectacle.removeArtiste(this);
 		        return true;
 		    } else {
 		        System.out.println("Erreur : Spectacle spécifié n'est pas présent dans la liste.");
