@@ -48,7 +48,7 @@ public class CtrlSpectacle {
     	initialize();
     }
     
-    public void initialize() {
+    void reinitialiser() {
     	txtTarifBalcon.setText(null);
     	txtTarifOrchestre.setText(null);
     	txtTarifLoges.setText(null);
@@ -56,7 +56,12 @@ public class CtrlSpectacle {
     	txtNbSpec.setText(null);
     	cbDuree.setValue(null);
     	cbGenre.setValue(null);
+    }
+    
+    public void initialize() {
+    	this.reinitialiser();
     	
+    	// Property False si il manque une information
     	BooleanBinding manque = Bindings.or(
     		Bindings.or(
     			Bindings.or(
@@ -69,12 +74,16 @@ public class CtrlSpectacle {
     		,cbGenre.valueProperty().isNull()
     	);
     	
+    	// Disable validation si il manque une information
     	bnValider.disableProperty().bind(
     		Bindings.when(manque).
     		then(true).otherwise(false)
     	);	
     	
+    	// Rempli cbGenre
     	cbGenre.getItems().addAll(Genre.liste);
+    	
+    	// Rempli cbDuree
     	for (int temps = 15; temps <= 3*60; temps+=15) {
     		System.out.println(temps);
     		cbDuree.getItems().add(Heure.intToString(temps));

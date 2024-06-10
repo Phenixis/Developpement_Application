@@ -7,7 +7,7 @@ public class Statistique {
 		return new Statistique(spec);
 	}
 	
-	Spectacle spectacle;
+	private Spectacle spectacle;
 	private String nomSpectacle; // valeur récupérée
 	private int nbRepresentation; // valeur récupérée
 	private int nbBillet=0; // valeur calculée
@@ -18,28 +18,46 @@ public class Statistique {
 		
 		this.update();
 		
-		this.moyBillet=moyenneBillet(spectacle);
+		this.moyBillet=moyenneBillet();
 	}
 	
 	public void update() {
 		this.nbRepresentation=spectacle.getRepresentations().size();
-		this.nbBillet=nombreBillet(spectacle);
+		this.nbBillet=nombreBillet();
 	}
 
-	private int nombreBillet(Spectacle spectacle){
+	private int nombreBillet(){
 		int nb=0;
 		
-		for(Representation i : spectacle.getRepresentations()){
+		for(Representation i : this.spectacle.getRepresentations()){
 			nb+=i.getNbBilletVendu();
 		}
 		
 		return nb;
 	}	
 
-	private int moyenneBillet(Spectacle spectacle){
+	private int moyenneBillet(){
 		this.update();
 		return nbBillet/nbRepresentation;
+	}
 	
+	// Accesseurs
+	public String getNomSpectacle() {
+		return nomSpectacle;
 	}
 
+	public int getNbRepresentation() {
+		this.update();
+		return nbRepresentation;
+	}
+
+	public int getNbBillet() {
+		this.update();
+		return nbBillet;
+	}
+
+	public float getMoyBillet() {
+		this.moyBillet = moyenneBillet();
+		return moyBillet;
+	}
 }

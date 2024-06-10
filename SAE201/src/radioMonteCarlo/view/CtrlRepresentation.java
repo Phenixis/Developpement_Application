@@ -1,7 +1,5 @@
 package radioMonteCarlo.view;
 
-import java.util.Date;
-
 import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,17 +18,24 @@ public class CtrlRepresentation {
     @FXML private Button bnValider;
     @FXML private Button bnAnnuler;
     @FXML private DatePicker dpJour;
+    
+	// TEST : A RETIRER
     Spectacle oui = new Spectacle("oui",10,"ui",10);
     
     @FXML
     void clicValider(ActionEvent event) {
     	Representation rep = new Representation(dpJour.getValue().toString(), cbHeure.getValue(), false,cbSpectacle.getValue());
+    	cbSpectacle.getValue().ajoutRepresentation(rep);
     	System.out.println(rep);
     }
 
     @FXML
     void clicAnnuler(ActionEvent event) {
     	main.fermerRepresentation();
+    	this.reinitialiserValeurs();
+    }
+    
+    void reinitialiserValeurs() {
     	cbSpectacle.valueProperty().set(null);
     	cbHeure.valueProperty().set(null);
     	dpJour.valueProperty().set(null);
@@ -39,27 +44,34 @@ public class CtrlRepresentation {
     public void initialize() {
     	bnValider.setDefaultButton(true);
     	bnAnnuler.setCancelButton(true);
+    	
+    	// Disable validation si valeur pas toutes remplies
     	bnValider.disableProperty().bind(
     			Bindings.when(Bindings.or(Bindings.or(cbSpectacle.valueProperty().isNull(), dpJour.armedProperty()), cbHeure.valueProperty().isNull())).
     			then(true).otherwise(false)
     			);
+    	
+    	// TEST : A RETIRER
     	cbSpectacle.getItems().add(oui);
     	
+    	// Disable choix jour si Spectacle pas choisi.
+    	dpJour.disableProperty().bind(
+    			Bindings.when(cbSpectacle.valueProperty().isNull()).
+    			then(true).otherwise(false)
+    			);
+
+    	// Disable choix heure si Spectacle ou Jour pas choisi.
     	cbHeure.disableProperty().bind(
-    			Bindings.when(Bindings.or(cbSpectacle.valueProperty().isNull(), dpJour.armedProperty())).
+    			Bindings.when(Bindings.or(cbSpectacle.valueProperty().isNull(), dpJour.valueProperty().isNull())).
     			then(true).otherwise(false)
     			);
     	
-    	
-    	
-    	for (int temps = 15; temps <= 3*60; temps+=15) {
-    		System.out.println(temps);
+    	// Rempli cbHeure
+    	for (int temps = Heure.HORAIRE_OUVERTURE; temps <= Heure.HORAIRE_FERMETURE; temps+=15) {
     		if (true) { // vérifier la disponibilité par rapport à la date
     			cbHeure.getItems().add(Heure.intToString(temps));    			
     		}
     	}
     }
-    
-    
 }
 
