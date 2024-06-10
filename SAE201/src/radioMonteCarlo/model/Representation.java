@@ -15,7 +15,7 @@ public class Representation {
     // Constructeurs
     
     public Representation(String date, String heure, boolean annulee) {
-    	this(date, heure, annulee, new Random().nextInt(500));
+    	this(date, heure, annulee, new Random().nextInt(480));
     }
     
     public Representation(String date, String heure, boolean annulee, int nbBilletVendu) {
