@@ -7,7 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
-import radioMonteCarlo.Spectacle;
+import radioMonteCarlo.model.Spectacle;
 import radioMonteCarlo.controller.main;
 
 public class CtrlRepresentation {
