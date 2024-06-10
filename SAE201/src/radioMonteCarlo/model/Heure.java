@@ -15,12 +15,12 @@ public class Heure {
 		// heure = 90, return = "01:30"
 		int nbHeure = (int) (Heure.intToMin(heure)*60);
 		
-		return "" + nbHeure + ":" + (heure-nbHeure*60);
+		return "" + nbHeure + ":" + (heure-(nbHeure*60));
 	}
 	
 	static public int stringToInt(String heure) {
 		// heure = "01:30", return = 90
-		return Integer.parseInt(heure.substring(0, heure.indexOf(":")))*60 + Integer.parseInt(heure.substring(heure.indexOf(":")))
+		return Integer.parseInt(heure.substring(0, heure.indexOf(":")))*60 + Integer.parseInt(heure.substring(heure.indexOf(":")));
 	}
 	
 }
