@@ -13,9 +13,23 @@ public class Heure {
 	
 	static public String intToString(int heure) {
 		// heure = 90, return = "01:30"
+		String res = "";
+		
 		int nbHeure = (int) (Heure.intToMin(heure));
 		
-		return "" + nbHeure + ":" + (heure-(nbHeure*60));
+		if (nbHeure < 10) {
+			res = res + "0";
+		}
+		
+		res = res + nbHeure + ":";
+		
+		if (heure-(nbHeure*60) < 10) {
+			res = res + "0";
+		}
+		
+		res = res + (heure-(nbHeure*60));
+		
+		return res;
 	}
 	
 	static public int stringToInt(String heure) {
