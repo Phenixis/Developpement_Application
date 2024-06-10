@@ -10,7 +10,6 @@ public class Spectacle {
     private String genre;
     private int nbreMaxSpect;
     private ArrayList<Representation> listeRepresentations=new ArrayList<>();
-    private Information information;
     private ArrayList<Artiste> listeArtiste=new ArrayList<>();
     
     public Spectacle(String nom, int duree, String genre, int nbreMaxSpect) {
@@ -18,7 +17,6 @@ public class Spectacle {
         this.duree = duree;
         this.genre = genre;
         this.nbreMaxSpect = nbreMaxSpect;
-        this.information = new Information(this);
         
     }
 
@@ -64,13 +62,7 @@ public class Spectacle {
 		this.listeRepresentations = listeRepresentations;
 	}
 
-	public Information getInformation() {
-		return information;
-	}
-
-	public void setInformation(Information information) {
-		this.information = information;
-	}
+	
 
 	public ArrayList<Artiste> getListeArtiste() {
 		return listeArtiste;
@@ -80,11 +72,36 @@ public class Spectacle {
 		this.listeArtiste = listeArtiste;
 	}
 
+
+	private void addSpectacle(Spectacle spectacle) {
+		list.add(spectacle);
+	}
+
+	private void removeSpectacle(Spectacle spectacle) {
+		list.remove(spectacle);
+	}
+
+	private void ajoutSpectacle(Spectacle spectacle) {
+		this.addSpectacle(spectacle);
+	}
+
+	private void retirerSpectacle(Spectacle spectacle) {
+		if(this.list.size()!=1) {
+		    if (this.list.contains(spectacle)) {
+		        this.removeSpectacle(spectacle);
+		    }
+			else {
+		        System.out.println("Erreur : representation spécifié n'est pas présent dans la liste.");
+		    }
+		}else {
+			System.out.println("Erreur : minimum 1 representation");
+		}	
+	}
+	
+
 	public void ajoutRepresentation(Representation representation){
 		this.listeRepresentations.add(representation);
-		representation.ajoutSpectacle(this);
 		
-		this.information.misajour(representation);
 	}
 	
 	public void removeRepresentation(Representation representation) {
@@ -97,11 +114,6 @@ public class Spectacle {
 		}else {
 			System.out.println("Erreur : minimum 1 representation");
 		}	
-	}
-	
-	
-	public void ajoutInformation(Information information){
-		this.information=information;
 	}
 	
 	
