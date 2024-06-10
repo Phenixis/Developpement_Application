@@ -13,13 +13,9 @@ import radioMonteCarlo.controller.main;
 public class CtrlRepresentation {
 
     @FXML private ChoiceBox<Spectacle> cbSpectacle;
-
     @FXML private ChoiceBox<Date> cbHeure;
-
     @FXML private Button bnValider;
-
     @FXML private Button bnAnnuler;
-
     @FXML private DatePicker dpJour;
 
     @FXML
