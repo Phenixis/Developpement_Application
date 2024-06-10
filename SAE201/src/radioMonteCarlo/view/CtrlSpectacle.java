@@ -7,19 +7,15 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import radioMonteCarlo.Artiste;
+import radioMonteCarlo.controller.main;
 
 public class CtrlSpectacle {
 
     @FXML private ImageView imageScene;
-
-    @FXML
-    private Button bnDroite;
-
-    @FXML
-    private TextField txtTarifBalcon;
-
-    @FXML
-    private Button bnGauche;
+    @FXML private Button bnDroite;
+    @FXML private TextField txtTarifBalcon;
+    @FXML private Button bnGauche;
 
     @FXML
     private ListView<?> listViewArtistesSelectionnés;
@@ -37,7 +33,7 @@ public class CtrlSpectacle {
     private TextField txtNbSpec;
 
     @FXML
-    private ListView<?> listViewArtistes;
+    private ListView<Artiste> listViewArtistes;
 
     @FXML
     private TextField txtTarifOrchestre;
@@ -49,7 +45,7 @@ public class CtrlSpectacle {
     private TextField txtNom;
 
     @FXML
-    private ChoiceBox<?> cbGenre;
+    private ChoiceBox<String> cbGenre;
 
     @FXML
     void clicDroite(ActionEvent event) {
@@ -68,7 +64,7 @@ public class CtrlSpectacle {
 
     @FXML
     void clicAnnuler(ActionEvent event) {
-
+    	main.fermerSpectacle();
     }
 
 }

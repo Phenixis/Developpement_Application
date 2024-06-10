@@ -24,8 +24,7 @@
       </HBox>
       <HBox alignment="CENTER_RIGHT" spacing="10.0">
          <children>
-            <Button fx:id="bnValider" defaultButton="true" mnemonicParsing="false" onAction="#clicValider" prefWidth="80.0" text="Valider" />
-            <Button fx:id="bnAnnuler" cancelButton="true" mnemonicParsing="false" onAction="#clicAnnuler" prefWidth="80.0" text="Annuler" />
+            <Button fx:id="bnOk" defaultButton="true" mnemonicParsing="false" onAction="#clicOk" prefWidth="80.0" text="Ok" />
          </children>
       </HBox>
    </children>
