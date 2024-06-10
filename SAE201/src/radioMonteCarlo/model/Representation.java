@@ -28,7 +28,7 @@ public class Representation {
     	
     	this.setSpectacle(spectacle);
     }
-
+    
     private Representation(Representation ancienne, Spectacle nouveauSpectacle) {
     	this(ancienne.jour, ancienne.heure, ancienne.annulee, ancienne.nbBilletVendu, nouveauSpectacle);		
     }

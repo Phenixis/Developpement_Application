@@ -39,7 +39,7 @@ public class CtrlAccueil {
 
     @FXML
     void clicEasterEgg(ActionEvent event) {
-
+    	System.out.println("Vous avez");
     }
 
     @FXML
