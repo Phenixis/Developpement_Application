@@ -1,4 +1,4 @@
-package radioMonteCarlo.model;
+package radioMonteCarlo;
 
 import java.util.ArrayList;
 
@@ -52,6 +52,8 @@ public class Spectacle {
 		this.nbreMaxSpect = nbreMaxSpect;
 	}
 	
+    
+	
 	public ArrayList<Representation> getListeRepresentations() {
 		return listeRepresentations;
 	}
@@ -97,40 +99,62 @@ public class Spectacle {
 	}
 	
 
-	public void ajoutRepresentation(Representation representation){
+	public void addRepresentation(Representation representation) {
 		this.listeRepresentations.add(representation);
-		
 	}
-	
+
 	public void removeRepresentation(Representation representation) {
-		if(this.listeRepresentations.size()!=1) {
-		    if (this.listeRepresentations.contains(representation)) {
-		        this.listeRepresentations.remove(representation);
-		    } else {
-		        System.out.println("Erreur : representation spécifié n'est pas présent dans la liste.");
-		    }
-		}else {
-			System.out.println("Erreur : minimum 1 representation");
-		}	
+		this.listeRepresentations.remove(representation);
+	}
+
+	public void ajoutRepresentation(Representation representation) {
+		this.addRepresentation(representation);
+	}
+
+	public void retirerRepresentation(Representation representation) {
+		if (this.listeRepresentations.size() != 1) {
+			if (this.listeRepresentations.contains(representation)) {
+				this.removeRepresentation(representation);
+			} else {
+				System.out.println("Erreur : représentation spécifiée n'est pas présente dans la liste.");
+			}
+		} else {
+			System.out.println("Erreur : minimum 1 représentation");
+		}
 	}
 	
-	public void ajoutInformation(Information information){
-		this.information=information;
-	}
 	
-	public void ajoutArtiste(Artiste artiste){
+	
+	
+	public void addArtiste(Artiste artiste) {
 		this.listeArtiste.add(artiste);
 	}
-	
-	public void retirerArtiste(Artiste artiste) {
-		if(this.listeArtiste.size()!=1) {
-		    if (this.listeArtiste.contains(artiste)) {
-		        this.listeArtiste.remove(artiste);
-		    } else {
-		        System.out.println("Erreur : artiste spécifié n'est pas présent dans la liste.");
-		    }
-		}else {
-			System.out.println("Erreur : minimum 1 artiste");
-		}	
+
+	public void removeArtiste(Artiste artiste) {
+		this.listeArtiste.remove(artiste);
 	}
+
+	public void ajoutArtiste(Artiste artiste) {
+		this.addArtiste(artiste);
+	}
+
+	public void retirerArtiste(Artiste artiste) {
+		if (this.listeArtiste.size() != 1) {
+			if (this.listeArtiste.contains(artiste)) {
+				this.removeArtiste(artiste);
+			} else {
+				System.out.println("Erreur : artiste spécifié n'est pas présent dans la liste.");
+			}
+		} else {
+			System.out.println("Erreur : minimum 1 artiste");
+		}
+	}
+	
+	
+	
+    
+	
+	
+
+    
 }
