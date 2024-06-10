@@ -52,7 +52,7 @@ public class CtrlSpectacle {
     	txtTarifOrchestre.setText("");
     	txtTarifLoges.setText("");
     	txtNom.setText("");
-    	txt.setText("");
+    	txtNbSpec.setText("");
     	cbDuree.setValue("1h30");
     	cbGenre.setValue("");
     	
@@ -76,6 +76,8 @@ public class CtrlSpectacle {
     	);	
     	
     	cbGenre.getItems().addAll(Genre.liste);
+    	
+    	cbDuree.getItems().addAll("0:15","0:30","0:45","1:00","1:15","1:30");
     	
     }
     
