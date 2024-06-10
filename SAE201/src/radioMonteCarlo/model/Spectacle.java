@@ -21,12 +21,10 @@ public class Spectacle {
         this.duree = duree;
         this.genre = genre;
         this.nbreMaxSpect = nbreMaxSpect;
-        
     }
     
-    
+
     // Accesseurs
-    
 	public String getNom() {
 		return nom;
 	}
@@ -67,22 +65,32 @@ public class Spectacle {
 		this.nbreMaxSpect = nbreMaxSpect;
 	}
 	
+	public String toString() {
+		return this.nom + "(" + Heure.intToString(this.duree) + ")";
+	}
+	
+	public ArrayList<Representation> getRepresentations() {
+		return this.listeRepresentations;
+	}
     // Relation avec Représentation
 	private void addRepresentation(Representation representation) {
 		this.listeRepresentations.add(representation);
 	}
 
-	public void ajoutRepresentation(Representation representation) {
+	public boolean ajoutRepresentation(Representation representation) {
 		if (representation.getSpectacle().equals(this)) { // set le spectacle dans Représentation avant de le mettre dans Spectacle
-			this.addRepresentation(representation);			
+			this.addRepresentation(representation);
+			return true;
 		}
+		return false;
 	}
 
-	public void annulerRepresentation(Representation representation) {
+	public boolean annulerRepresentation(Representation representation) {
 		if (this.listeRepresentations.size() != 1) {
 			if (this.listeRepresentations.contains(representation)) {
 				if (representation.getSpectacle().equals(this)) {
 					representation.annuler();
+					return true;
 				} else {
 					System.out.println("Erreur : la représentation ne correspond pas au spectacle.");
 				}
@@ -92,14 +100,15 @@ public class Spectacle {
 		} else {
 			System.out.println("Erreur : il doit y avoir au minimum 1 représentation par spectacle");
 		}
+		return false;
 	}
 	
 	// Relation avec Artiste
-	public void addArtiste(Artiste artiste) {
+	private void addArtiste(Artiste artiste) {
 		this.listeArtiste.add(artiste);
 	}
 
-	public void removeArtiste(Artiste artiste) {
+	private void removeArtiste(Artiste artiste) {
 		this.listeArtiste.remove(artiste);
 	}
 
