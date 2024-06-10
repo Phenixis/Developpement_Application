@@ -6,19 +6,14 @@ import java.util.HashMap;
 public class Tarif {
 	Spectacle spectacle;
 	Zone zone;
-	
+	int tarifZone;
 	double PleinTarif;
 	
-	public Tarif(Spectacle spectacle, Zone zone) {
+	public Tarif(Spectacle spectacle, Zone zone,int tarifZone) {
 		this.spectacle=spectacle;
 		this.zone = zone;
+		this.tarifZone=tarifZone;
 	}
-	
-	public void ajoutPrix(Zone zone, int tarifZone) {
-		PleinTarif=tarifZone;
-		
-	}
-	
 	
 	
 }
