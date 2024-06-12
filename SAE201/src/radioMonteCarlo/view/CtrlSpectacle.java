@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -33,6 +34,12 @@ public class CtrlSpectacle {
     @FXML private TextField txtNom;
     @FXML private ChoiceBox<String> cbGenre;
     @FXML private ChoiceBox<String> cbDuree;
+   
+    @FXML private Label labelErreurNom;
+
+    @FXML private Label labelErreurTarifs;
+
+    @FXML private Label LabelErreurNbSpec;
 
     @FXML void clicDroite(ActionEvent event) {
     	
@@ -70,6 +77,26 @@ public class CtrlSpectacle {
     @FXML void clicAnnuler(ActionEvent event) {
     	main.fermerSpectacle();
     	initialize();
+    }
+    
+    @FXML
+    void appuieTxtNbSpec(ActionEvent event) {
+
+    }
+
+    @FXML
+    void appuieTarifBalcon(ActionEvent event) {
+
+    }
+
+    @FXML
+    void appuieTarifOrchestre(ActionEvent event) {
+
+    }
+
+    @FXML
+    void appuieTarifLoges(ActionEvent event) {
+
     }
     
     void reinitialiser() {
