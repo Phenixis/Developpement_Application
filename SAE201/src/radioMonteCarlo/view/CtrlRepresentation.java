@@ -20,7 +20,6 @@ public class CtrlRepresentation {
     @FXML private DatePicker dpJour;
     
 	// TEST : A RETIRER
-    Spectacle oui = new Spectacle("oui",10,"ui",10);
     
     @FXML
     void clicValider(ActionEvent event) {
@@ -51,9 +50,7 @@ public class CtrlRepresentation {
     			then(true).otherwise(false)
     			);
     	
-    	// TEST : A RETIRER
-    	cbSpectacle.getItems().add(oui);
-    	
+    
     	// Disable choix jour si Spectacle pas choisi.
     	dpJour.disableProperty().bind(
     			Bindings.when(cbSpectacle.valueProperty().isNull()).
@@ -72,6 +69,9 @@ public class CtrlRepresentation {
     			cbHeure.getItems().add(Heure.intToString(temps));    			
     		}
     	}
+    }
+    @FXML public void updateCbHeure() {
+    	
     }
 }
 
