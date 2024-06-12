@@ -22,9 +22,9 @@ public class Spectacle {
         this.genre = genre;
         this.nbreMaxSpect = nbreMaxSpect;
      
-        this.listeRepresentations = new ArrayList<>();
-        this.listeTarifs = new ArrayList<>();
-        this.listeArtiste = new ArrayList<>();
+        this.listeRepresentations = new ArrayList<Representation>();
+        this.listeTarifs = new ArrayList<Tarif>();
+        this.listeArtiste = new ArrayList<Artiste>();
     }
     
 

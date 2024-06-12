@@ -35,7 +35,7 @@ public class CtrlSpectacle {
     @FXML private ChoiceBox<String> cbDuree;
 
     @FXML void clicDroite(ActionEvent event) {
-
+    	
     }
 
     @FXML void clicGauche(ActionEvent event) {
@@ -50,11 +50,14 @@ public class CtrlSpectacle {
     	// Dans le cas où c bon
     	Spectacle s = new Spectacle(txtNom.getText(),Heure.stringToInt(cbDuree.getValue()),cbGenre.getValue(),Integer.parseInt(txtNbSpec.getText()));
     	
-    	Tarif t1 = new Tarif(s,new Zone("Balcon"),Integer.parseInt(txtTarifBalcon.getText()));
-    	Tarif t2 = new Tarif(s,new Zone("Loges"),Integer.parseInt(txtTarifLoges.getText()));
-    	Tarif t3 = new Tarif(s,new Zone("Orchestre"),Integer.parseInt(txtTarifOrchestre.getText()));
-    	// Je peux ajouter où les Tarifs ?
+    	Tarif t1 = new Tarif(new Zone("Balcon"),Integer.parseInt(txtTarifBalcon.getText()));
+    	Tarif t2 = new Tarif(new Zone("Loges"),Integer.parseInt(txtTarifLoges.getText()));
+    	Tarif t3 = new Tarif(new Zone("Orchestre"),Integer.parseInt(txtTarifOrchestre.getText()));
+    	
+    	
+    	
     	Spectacle.list.add(s);
+    	
     	
     	for(Spectacle spec : Spectacle.list) {
     		System.out.println(spec.toString());
