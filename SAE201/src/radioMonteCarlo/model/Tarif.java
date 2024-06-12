@@ -1,13 +1,11 @@
 package radioMonteCarlo.model;
 
 public class Tarif {
-	Spectacle spectacle;
 	Zone zone;
 	int tarifZone;
 	double PleinTarif;
 	
-	public Tarif(Spectacle spectacle, Zone zone,int tarifZone) {
-		this.spectacle=spectacle;
+	public Tarif(Zone zone,int tarifZone) {
 		this.zone = zone;
 		this.tarifZone=tarifZone;
 	}

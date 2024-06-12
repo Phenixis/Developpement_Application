@@ -4,23 +4,27 @@ import java.util.ArrayList;
 
 public class Spectacle {
 	static public ArrayList<Spectacle> list = new ArrayList<>();
-
+	
     private String nom;
     private int duree;
     private String genre;
     private int nbreMaxSpect;
-    
     // Relation avec Représentation
-    private ArrayList<Representation> listeRepresentations=new ArrayList<>();
-    
+    private ArrayList<Representation> listeRepresentations;
+    // Relation avec Tarif
+    private ArrayList<Tarif> listeTarifs;
     // Relation avec Artiste
-    private ArrayList<Artiste> listeArtiste=new ArrayList<>();
+    private ArrayList<Artiste> listeArtiste;
     
     public Spectacle(String nom, int duree, String genre, int nbreMaxSpect) {
         this.nom = nom;
         this.duree = duree;
         this.genre = genre;
         this.nbreMaxSpect = nbreMaxSpect;
+     
+        this.listeRepresentations = new ArrayList<>();
+        this.listeTarifs = new ArrayList<>();
+        this.listeArtiste = new ArrayList<>();
     }
     
 
