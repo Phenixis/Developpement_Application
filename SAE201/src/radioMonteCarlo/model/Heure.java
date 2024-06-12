@@ -1,9 +1,10 @@
 package radioMonteCarlo.model;
 
 public class Heure {
-	static public int JOURNEE = 24*60; 
-	static public int HORAIRE_OUVERTURE = Heure.stringToInt("18:30");
-	static public int HORAIRE_FERMETURE = Heure.stringToInt("01:00")+Heure.JOURNEE;
+	static public final int JOURNEE = 24*60; 
+	static public final int HORAIRE_OUVERTURE = Heure.stringToInt("18h30");
+	static public final int HORAIRE_FERMETURE = Heure.stringToInt("01h00")+Heure.JOURNEE;
+	static private final String separateur = "h";
 	
 	static public float intToMin(int minutes) {
 		// minutes = 90, return = 1.5
@@ -28,7 +29,7 @@ public class Heure {
 			res = res + "0";
 		}
 		
-		res = res + nbHeure + "h";
+		res = res + nbHeure + Heure.separateur;
 		
 		if (heure%60 < 10) {
 			res = res + "0";
@@ -41,7 +42,7 @@ public class Heure {
 	
 	static public int stringToInt(String heure) {
 		// heure = "01:30", return = 90
-		return Integer.parseInt(heure.substring(0, heure.indexOf(":")))*60 + Integer.parseInt(heure.substring(heure.indexOf(":")+1));
+		return Integer.parseInt(heure.substring(0, heure.indexOf(Heure.separateur)))*60 + Integer.parseInt(heure.substring(heure.indexOf(Heure.separateur)+1));
 	}
 	
 }

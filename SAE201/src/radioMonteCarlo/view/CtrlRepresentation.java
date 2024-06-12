@@ -1,11 +1,15 @@
 package radioMonteCarlo.view;
 
+import java.util.ArrayList;
+
 import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
+import radioMonteCarlo.model.Artiste;
+import radioMonteCarlo.model.Genre;
 import radioMonteCarlo.model.Heure;
 import radioMonteCarlo.model.Representation;
 import radioMonteCarlo.model.Spectacle;
@@ -19,14 +23,48 @@ public class CtrlRepresentation {
     @FXML private Button bnAnnuler;
     @FXML private DatePicker dpJour;
     
-	// TEST : A RETIRER
-    Spectacle oui = new Spectacle("oui",10,"ui",10);
+    Spectacle oui = new Spectacle("Oui", 90, Genre.liste[0], 480); // , new ArrayList<Artiste>(new Artiste("test")));
+    
+    @FXML
+    void updateCbHeure(ActionEvent event) {
+    	if (dpJour.getValue() != null && cbSpectacle.getValue() != null) {	
+	    	System.out.println("Update Cb Heure");
+	    	
+	    	cbHeure.getItems().clear();
+	    	for (int temps = Heure.HORAIRE_OUVERTURE; temps <= Heure.HORAIRE_FERMETURE-cbSpectacle.getValue().getDuree(); temps+=15) {
+	    		cbHeure.getItems().add(Heure.intToString(temps));
+	    	}
+	    	
+	    	for (Representation repr: Representation.list) {
+	    		System.out.println(repr);
+	    		System.out.println(repr.getDate());
+	    		System.out.println(dpJour.getValue().toString());
+	    		
+	    		if (repr.getDate().equals(dpJour.getValue().toString())) {
+	    			System.out.println("In if");
+	    			int heureDebut = Heure.stringToInt(repr.getHeure());
+	    			int duree = repr.getSpectacle().getDuree();
+	    			System.out.println(heureDebut);
+	    			System.out.println(duree);
+	    			
+	    			for (int temps=heureDebut; temps < heureDebut+duree+15; temps += 15) {
+	    				System.out.println(Heure.intToString(temps));
+	    				cbHeure.getItems().remove(Heure.intToString(temps));
+	    			}
+	    		}
+	    	}
+    	}
+    }
     
     @FXML
     void clicValider(ActionEvent event) {
     	Representation rep = new Representation(dpJour.getValue().toString(), cbHeure.getValue(), false,cbSpectacle.getValue());
     	cbSpectacle.getValue().ajoutRepresentation(rep);
-    	System.out.println(rep);
+    	System.out.println(Representation.list);
+    	
+    	this.reinitialiserValeurs();
+    	
+    	main.fermerRepresentation();
     }
 
     @FXML
@@ -42,6 +80,7 @@ public class CtrlRepresentation {
     }
     
     public void initialize() {
+    	cbSpectacle.getItems().add(oui);
     	bnValider.setDefaultButton(true);
     	bnAnnuler.setCancelButton(true);
     	
@@ -50,9 +89,6 @@ public class CtrlRepresentation {
     			Bindings.when(Bindings.or(Bindings.or(cbSpectacle.valueProperty().isNull(), dpJour.armedProperty()), cbHeure.valueProperty().isNull())).
     			then(true).otherwise(false)
     			);
-    	
-    	// TEST : A RETIRER
-    	cbSpectacle.getItems().add(oui);
     	
     	// Disable choix jour si Spectacle pas choisi.
     	dpJour.disableProperty().bind(
@@ -65,13 +101,6 @@ public class CtrlRepresentation {
     			Bindings.when(Bindings.or(cbSpectacle.valueProperty().isNull(), dpJour.valueProperty().isNull())).
     			then(true).otherwise(false)
     			);
-    	
-    	// Rempli cbHeure
-    	for (int temps = Heure.HORAIRE_OUVERTURE; temps <= Heure.HORAIRE_FERMETURE; temps+=15) {
-    		if (true) { // vérifier la disponibilité par rapport à la date
-    			cbHeure.getItems().add(Heure.intToString(temps));    			
-    		}
-    	}
     }
 }
 
