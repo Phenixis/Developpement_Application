@@ -27,6 +27,9 @@ public class Spectacle {
         this.listeRepresentations = new ArrayList<Representation>();
         this.listeTarifs = new ArrayList<Tarif>();
         this.listeArtiste=artiste;
+        
+        Spectacle.list.add(this);
+        System.out.println(Spectacle.list);
     }
     
 

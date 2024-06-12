@@ -69,15 +69,6 @@ public class CtrlSpectacle {
     	}
     	
     	Spectacle spectacle = new Spectacle(txtNom.getText(),Heure.stringToInt(cbDuree.getValue()),cbGenre.getValue(),Integer.parseInt(txtNbSpec.getText()),artiste);
-    	System.out.println(spectacle);
-    	
-    	
-    	Spectacle.list.add(spectacle);
-    	
-    	
-    	for(Spectacle spec : Spectacle.list) {
-    		System.out.println(spec.toString());
-    	}
     	
     	main.fermerSpectacle();
     	initialize();
@@ -145,7 +136,6 @@ public class CtrlSpectacle {
     	
     	// Rempli cbDuree
     	for (int temps = 15; temps <= 3*60; temps+=15) {
-    		System.out.println(temps);
     		cbDuree.getItems().add(Heure.intToString(temps));
     	}
     	listViewArtistesSelectionnés.getItems().add(a);

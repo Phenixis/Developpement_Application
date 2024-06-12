@@ -26,8 +26,7 @@ public class CtrlRepresentation {
     
     @FXML
     void updateCbHeure(ActionEvent event) {
-    	if (dpJour.getValue() != null && cbSpectacle.getValue() != null) {	
-	    	System.out.println("Update Cb Heure");
+    	if (dpJour.getValue() != null && cbSpectacle.getValue() != null) {
 	    	
 	    	cbHeure.getItems().clear();
 	    	for (int temps = Heure.HORAIRE_OUVERTURE; temps <= Heure.HORAIRE_FERMETURE-cbSpectacle.getValue().getDuree(); temps+=15) {
@@ -35,19 +34,12 @@ public class CtrlRepresentation {
 	    	}
 	    	
 	    	for (Representation repr: Representation.list) {
-	    		System.out.println(repr);
-	    		System.out.println(repr.getDate());
-	    		System.out.println(dpJour.getValue().toString());
 	    		
 	    		if (repr.getDate().equals(dpJour.getValue().toString())) {
-	    			System.out.println("In if");
 	    			int heureDebut = Heure.stringToInt(repr.getHeure());
 	    			int duree = repr.getSpectacle().getDuree();
-	    			System.out.println(heureDebut);
-	    			System.out.println(duree);
 	    			
 	    			for (int temps=heureDebut; temps < heureDebut+duree+15; temps += 15) {
-	    				System.out.println(Heure.intToString(temps));
 	    				cbHeure.getItems().remove(Heure.intToString(temps));
 	    			}
 	    		}
@@ -79,6 +71,8 @@ public class CtrlRepresentation {
     }
     
     public void initialize() {
+    	cbSpectacle.getItems().addAll(Spectacle.list);
+    	
     	bnValider.setDefaultButton(true);
     	bnAnnuler.setCancelButton(true);
     	
@@ -101,9 +95,6 @@ public class CtrlRepresentation {
     			Bindings.when(Bindings.or(cbSpectacle.valueProperty().isNull(), dpJour.valueProperty().isNull())).
     			then(true).otherwise(false)
     			);
-    }
-    @FXML public void updateCbHeure() {
-    	
     }
 }
 
