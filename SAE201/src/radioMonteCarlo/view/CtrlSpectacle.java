@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import radioMonteCarlo.model.Artiste;
 import radioMonteCarlo.controller.main;
 import radioMonteCarlo.model.Genre;
@@ -88,22 +89,22 @@ public class CtrlSpectacle {
     }
     
     @FXML
-    void appuieTxtNbSpec(ActionEvent event) {
+    void appuieTxtNbSpec(KeyEvent event) {
 
     }
 
     @FXML
-    void appuieTarifBalcon(ActionEvent event) {
+    void appuieTarifBalcon(KeyEvent event) {
 
     }
 
     @FXML
-    void appuieTarifOrchestre(ActionEvent event) {
+    void appuieTarifOrchestre(KeyEvent event) {
 
     }
 
     @FXML
-    void appuieTarifLoges(ActionEvent event) {
+    void appuieTarifLoges(KeyEvent event) {
 
     }
     
@@ -158,6 +159,7 @@ public class CtrlSpectacle {
     private boolean estEntier(String str) {
     	return str.matches("\\d*");
   	}
+    
     
     
     	
