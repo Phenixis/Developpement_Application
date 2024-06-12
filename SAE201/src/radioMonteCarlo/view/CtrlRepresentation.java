@@ -90,6 +90,9 @@ public class CtrlRepresentation {
     			then(true).otherwise(false)
     			);
     	
+    	// TEST : A RETIRER
+    	cbSpectacle.getItems().add(oui);
+    	
     	// Disable choix jour si Spectacle pas choisi.
     	dpJour.disableProperty().bind(
     			Bindings.when(cbSpectacle.valueProperty().isNull()).
@@ -101,6 +104,9 @@ public class CtrlRepresentation {
     			Bindings.when(Bindings.or(cbSpectacle.valueProperty().isNull(), dpJour.valueProperty().isNull())).
     			then(true).otherwise(false)
     			);
+    }
+    @FXML public void updateCbHeure() {
+    	
     }
 }
 

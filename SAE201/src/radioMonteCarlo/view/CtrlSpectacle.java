@@ -1,11 +1,14 @@
 package radioMonteCarlo.view;
 
+import java.util.ArrayList;
+
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -33,7 +36,15 @@ public class CtrlSpectacle {
     @FXML private TextField txtNom;
     @FXML private ChoiceBox<String> cbGenre;
     @FXML private ChoiceBox<String> cbDuree;
+   
+    @FXML private Label labelErreurNom;
 
+    @FXML private Label labelErreurTarifs;
+
+    @FXML private Label LabelErreurNbSpec;
+
+    ArrayList<Artiste> artiste = new ArrayList<>();
+    Artiste a = new Artiste("oui");
     @FXML void clicDroite(ActionEvent event) {
     	
     }
@@ -48,15 +59,19 @@ public class CtrlSpectacle {
     	// SINON afficher texte erreur sur l'IHM
     	
     	// Dans le cas où c bon
-    	Spectacle s = new Spectacle(txtNom.getText(),Heure.stringToInt(cbDuree.getValue()),cbGenre.getValue(),Integer.parseInt(txtNbSpec.getText()));
     	
     	Tarif t1 = new Tarif(new Zone("Balcon"),Integer.parseInt(txtTarifBalcon.getText()));
     	Tarif t2 = new Tarif(new Zone("Loges"),Integer.parseInt(txtTarifLoges.getText()));
     	Tarif t3 = new Tarif(new Zone("Orchestre"),Integer.parseInt(txtTarifOrchestre.getText()));
+    	for(Artiste i : listViewArtistesSelectionnés.getItems()) {
+    		artiste.add(i);
+    	}
+    	
+    	Spectacle spectacle = new Spectacle(txtNom.getText(),Heure.stringToInt(cbDuree.getValue()),cbGenre.getValue(),Integer.parseInt(txtNbSpec.getText()),artiste);
+    	System.out.println(spectacle);
     	
     	
-    	
-    	Spectacle.list.add(s);
+    	Spectacle.list.add(spectacle);
     	
     	
     	for(Spectacle spec : Spectacle.list) {
@@ -70,6 +85,26 @@ public class CtrlSpectacle {
     @FXML void clicAnnuler(ActionEvent event) {
     	main.fermerSpectacle();
     	initialize();
+    }
+    
+    @FXML
+    void appuieTxtNbSpec(ActionEvent event) {
+
+    }
+
+    @FXML
+    void appuieTarifBalcon(ActionEvent event) {
+
+    }
+
+    @FXML
+    void appuieTarifOrchestre(ActionEvent event) {
+
+    }
+
+    @FXML
+    void appuieTarifLoges(ActionEvent event) {
+
     }
     
     void reinitialiser() {
@@ -112,6 +147,7 @@ public class CtrlSpectacle {
     		System.out.println(temps);
     		cbDuree.getItems().add(Heure.intToString(temps));
     	}
+    	listViewArtistesSelectionnés.getItems().add(a);
     	
     }
     
@@ -122,6 +158,9 @@ public class CtrlSpectacle {
     private boolean estEntier(String str) {
     	return str.matches("\\d*");
   	}
+    
+    
+    	
 
 }
 

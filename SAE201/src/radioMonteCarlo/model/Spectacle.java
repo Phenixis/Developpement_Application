@@ -16,7 +16,9 @@ public class Spectacle {
     // Relation avec Artiste
     private ArrayList<Artiste> listeArtiste;
     
-    public Spectacle(String nom, int duree, String genre, int nbreMaxSpect) {
+    
+    
+    public Spectacle(String nom, int duree, String genre, int nbreMaxSpect,ArrayList<Artiste> artiste) {
         this.nom = nom;
         this.duree = duree;
         this.genre = genre;
@@ -24,7 +26,7 @@ public class Spectacle {
      
         this.listeRepresentations = new ArrayList<Representation>();
         this.listeTarifs = new ArrayList<Tarif>();
-        this.listeArtiste = new ArrayList<Artiste>();
+        this.listeArtiste=artiste;
     }
     
 
