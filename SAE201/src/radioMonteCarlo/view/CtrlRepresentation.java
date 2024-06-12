@@ -79,7 +79,6 @@ public class CtrlRepresentation {
     }
     
     public void initialize() {
-    	cbSpectacle.getItems().add(oui);
     	bnValider.setDefaultButton(true);
     	bnAnnuler.setCancelButton(true);
     	
@@ -89,8 +88,7 @@ public class CtrlRepresentation {
     			then(true).otherwise(false)
     			);
     	
-    	// TEST : A RETIRER
-    	cbSpectacle.getItems().add(oui);
+    	
     	
     	// Disable choix jour si Spectacle pas choisi.
     	dpJour.disableProperty().bind(
