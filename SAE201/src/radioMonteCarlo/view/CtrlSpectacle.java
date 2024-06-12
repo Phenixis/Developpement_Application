@@ -13,6 +13,9 @@ import radioMonteCarlo.model.Artiste;
 import radioMonteCarlo.controller.main;
 import radioMonteCarlo.model.Genre;
 import radioMonteCarlo.model.Heure;
+import radioMonteCarlo.model.Spectacle;
+import radioMonteCarlo.model.Tarif;
+import radioMonteCarlo.model.Zone;
 
 public class CtrlSpectacle {
 
@@ -40,7 +43,25 @@ public class CtrlSpectacle {
     }
 
     @FXML void clicValider(ActionEvent event) {
-
+    	// VERIFIER si les valeurs son numerique et tout
+    	
+    	// SINON afficher texte erreur sur l'IHM
+    	
+    	// Dans le cas où c bon
+    	Spectacle s = new Spectacle(txtNom.getText(),Heure.stringToInt(cbDuree.getValue()),cbGenre.getValue(),Integer.parseInt(txtNbSpec.getText()));
+    	
+    	Tarif t1 = new Tarif(s,new Zone("Balcon"),Integer.parseInt(txtTarifBalcon.getText()));
+    	Tarif t2 = new Tarif(s,new Zone("Loges"),Integer.parseInt(txtTarifLoges.getText()));
+    	Tarif t3 = new Tarif(s,new Zone("Orchestre"),Integer.parseInt(txtTarifOrchestre.getText()));
+    	// Je peux ajouter où les Tarifs ?
+    	Spectacle.list.add(s);
+    	
+    	for(Spectacle spec : Spectacle.list) {
+    		System.out.println(spec.toString());
+    	}
+    	
+    	main.fermerSpectacle();
+    	initialize();
     }
 
     @FXML void clicAnnuler(ActionEvent event) {
