@@ -3,7 +3,7 @@ package radioMonteCarlo.model;
 import java.util.ArrayList;
 
 public class Statistique {
-	static Statistique calculerStats(Spectacle spec) {
+	public static Statistique calculerStats(Spectacle spec) {
 		return new Statistique(spec);
 	}
 	
