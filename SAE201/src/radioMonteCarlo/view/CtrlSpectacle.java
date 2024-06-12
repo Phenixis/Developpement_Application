@@ -37,11 +37,7 @@ public class CtrlSpectacle {
     @FXML private TextField txtNom;
     @FXML private ChoiceBox<String> cbGenre;
     @FXML private ChoiceBox<String> cbDuree;
-   
-    @FXML private Label labelErreurNom;
-
     @FXML private Label labelErreurTarifs;
-
     @FXML private Label LabelErreurNbSpec;
 
     ArrayList<Artiste> artiste = new ArrayList<>();
@@ -81,22 +77,55 @@ public class CtrlSpectacle {
     
     @FXML
     void appuieTxtNbSpec(KeyEvent event) {
-
+    	if(this.estEntier(txtNbSpec.getText()) == false) {
+    		txtNbSpec.deletePreviousChar();
+    		LabelErreurNbSpec.setText("Saisie incorrect, la valeur doit être numérique");
+        	LabelErreurNbSpec.setVisible(true);
+    	}
+    	else if(Integer.parseInt(txtNbSpec.getText()) > 480 || Integer.parseInt(txtNbSpec.getText()) < 0) {
+    		LabelErreurNbSpec.setText("La valeur ne doit pas excéder 480");
+    		txtNbSpec.setText("480");
+    		LabelErreurNbSpec.setVisible(true);
+    	}
+    	else {
+    		LabelErreurNbSpec.setVisible(false);
+    	}
     }
 
     @FXML
     void appuieTarifBalcon(KeyEvent event) {
-
+    	if(this.estDecimal(txtTarifBalcon.getText()) == false) {
+    		txtTarifBalcon.deletePreviousChar();
+    		labelErreurTarifs.setText("Les tarifs doivent être numériques");
+    		labelErreurTarifs.setVisible(true);
+    	}// pas fini
+    	/*else if(this.estDecimal(txtTarifBalcon.getText()) && this.estDecimal(txtTarifLoges.getText()) && this.estDecimal(txtTarifOrchestre.getText())) {
+		labelErreurTarifs.setVisible(false);
+	}*/
     }
 
     @FXML
     void appuieTarifOrchestre(KeyEvent event) {
-
+    	if(this.estDecimal(txtTarifOrchestre.getText()) == false) {
+    		txtTarifOrchestre.deletePreviousChar();
+    		labelErreurTarifs.setText("Les tarifs doivent être numériques");
+    		labelErreurTarifs.setVisible(true);
+    	}// pas fini
+    	/*else if(this.estDecimal(txtTarifBalcon.getText()) && this.estDecimal(txtTarifLoges.getText()) && this.estDecimal(txtTarifOrchestre.getText())) {
+		labelErreurTarifs.setVisible(false);
+	}*/
     }
 
     @FXML
     void appuieTarifLoges(KeyEvent event) {
-
+    	if(this.estDecimal(txtTarifLoges.getText()) == false) {
+    		txtTarifLoges.deletePreviousChar();
+    		labelErreurTarifs.setText("Les tarifs doivent être numériques");
+    		labelErreurTarifs.setVisible(true);
+    	} // pas fini
+    	/*else if(this.estDecimal(txtTarifBalcon.getText()) && this.estDecimal(txtTarifLoges.getText()) && this.estDecimal(txtTarifOrchestre.getText())) {
+    		labelErreurTarifs.setVisible(false);
+    	}*/
     }
     
     void reinitialiser() {
@@ -104,9 +133,11 @@ public class CtrlSpectacle {
     	txtTarifOrchestre.setText(null);
     	txtTarifLoges.setText(null);
     	txtNom.setText(null);
-    	txtNbSpec.setText(null);
+    	txtNbSpec.setText("480");
     	cbDuree.setValue(null);
     	cbGenre.setValue(null);
+    	LabelErreurNbSpec.setVisible(false);
+    	labelErreurTarifs.setVisible(false);
     }
     
     public void initialize() {

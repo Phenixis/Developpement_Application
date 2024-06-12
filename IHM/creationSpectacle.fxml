@@ -24,14 +24,13 @@
                <children>
                   <Label text="Nom :" />
                   <TextField fx:id="txtNom" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" />
-                  <Label fx:id="labelErreurNom" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="10.0">
                <children>
                   <Label text="Nombre maximum de spectateurs :" />
                   <TextField fx:id="txtNbSpec" onKeyTyped="#appuieTxtNbSpec" prefHeight="25.0" prefWidth="75.0" />
-                  <Label fx:id="LabelErreurNbSpec" />
+                  <Label fx:id="LabelErreurNbSpec" text="Saisie incorrect, la valeur doit etre numérique" textFill="RED" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="10.0">
@@ -83,7 +82,7 @@
                               <Label text="euros" />
                            </children>
                         </HBox>
-                        <Label fx:id="labelErreurTarifs" />
+                        <Label fx:id="labelErreurTarifs" textFill="RED" />
                      </children>
                   </VBox>
                   <ImageView fx:id="imageScene" fitHeight="226.0" fitWidth="389.0" pickOnBounds="true" preserveRatio="true">
