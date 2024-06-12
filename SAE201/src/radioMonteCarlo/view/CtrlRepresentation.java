@@ -23,7 +23,6 @@ public class CtrlRepresentation {
     @FXML private Button bnAnnuler;
     @FXML private DatePicker dpJour;
     
-    Spectacle oui = new Spectacle("Oui", 90, Genre.liste[0], 480); // , new ArrayList<Artiste>(new Artiste("test")));
     
     @FXML
     void updateCbHeure(ActionEvent event) {
