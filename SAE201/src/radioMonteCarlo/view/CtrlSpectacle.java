@@ -99,9 +99,8 @@ public class CtrlSpectacle {
     void appuieTarif(KeyEvent event) {
     	TextField target = (TextField) event.getTarget();
     	
-    	if (target.getText() == null) {
-    	} else if(target.getText().length() == 0) {
-    		if(this.estDecimal(txtTarifBalcon.getText()) && this.estDecimal(txtTarifLoges.getText()) && this.estDecimal(txtTarifOrchestre.getText())) {
+    	if(target.getText().length() == 0) {
+    		if(this.erreurDecimale()) {
         		labelErreurTarifs.setVisible(false);
         	}
     	}
@@ -109,14 +108,17 @@ public class CtrlSpectacle {
     		labelErreurTarifs.setText("Les tarifs doivent être numériques");
     		labelErreurTarifs.setVisible(true);
     	}
-//    	
+    }
+    
+    private boolean erreurDecimale() {
+    	return this.estDecimal(txtTarifBalcon.getText()) && this.estDecimal(txtTarifLoges.getText()) && this.estDecimal(txtTarifOrchestre.getText());
     }
 
     void reinitialiser() {
-    	txtTarifBalcon.setText(null);
-    	txtTarifOrchestre.setText(null);
-    	txtTarifLoges.setText(null);
-    	txtNom.setText(null);
+    	txtTarifBalcon.setText("");
+    	txtTarifOrchestre.setText("");
+    	txtTarifLoges.setText("");
+    	txtNom.setText("");
     	txtNbSpec.setText("480");
     	cbDuree.setValue(null);
     	cbGenre.setValue(null);
@@ -137,7 +139,7 @@ public class CtrlSpectacle {
     					,txtNbSpec.textProperty().isEmpty())
     			),Bindings.or(txtTarifBalcon.textProperty().isEmpty()
     					,txtNom.textProperty().isEmpty()))
-    		,cbGenre.valueProperty().isNull()
+    		,Bindings.or(cbGenre.valueProperty().isNull(), Bindings.or(labelErreurTarifs.visibleProperty(),LabelErreurNbSpec.visibleProperty()))
     	);
     	
     	// Disable validation si il manque une information
