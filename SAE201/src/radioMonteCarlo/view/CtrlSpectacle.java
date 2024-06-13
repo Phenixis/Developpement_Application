@@ -4,6 +4,11 @@ import java.util.ArrayList;
 
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.value.ObservableNumberValue;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventTarget;
 import javafx.fxml.FXML;
@@ -11,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
@@ -40,32 +46,43 @@ public class CtrlSpectacle {
     @FXML private ChoiceBox<String> cbDuree;
     @FXML private Label labelErreurTarifs;
     @FXML private Label LabelErreurNbSpec;
-
-    ArrayList<Artiste> artiste = new ArrayList<>();
-    Artiste a = new Artiste("oui");
-    @FXML void clicDroite(ActionEvent event) {
-    	
+    @FXML private Label LabelErreurArtiste;
+    
+    ObservableList<Artiste> listArtistes = FXCollections.observableArrayList();
+    ObservableList<Artiste> listArtistesSelectionnes = FXCollections.observableArrayList();
+    
+    ArrayList<Artiste> artistes = new ArrayList<>();
+    
+    @FXML void selectionne(ActionEvent event) {
+    	listArtistesSelectionnes.addAll(listViewArtistes.getSelectionModel().getSelectedItems());
+    	for(Artiste a : listArtistesSelectionnes) {
+    		listArtistes.remove(a);
+    	}
+    	listViewArtistesSelectionnés.setItems(listArtistesSelectionnes);
+		listViewArtistes.setItems(listArtistes);
     }
 
-    @FXML void clicGauche(ActionEvent event) {
-
+    @FXML void deselectionne(ActionEvent event) {
+    	listArtistes.addAll(listViewArtistesSelectionnés.getSelectionModel().getSelectedItems());
+    	for(Artiste a : listArtistes) {
+    		listArtistesSelectionnes.remove(a);
+    	}
+    	
+    	listViewArtistesSelectionnés.setItems(listArtistesSelectionnes);
+		listViewArtistes.setItems(listArtistes);
     }
 
     @FXML void clicValider(ActionEvent event) {
-    	// VERIFIER si les valeurs son numerique et tout
-    	
-    	// SINON afficher texte erreur sur l'IHM
-    	
-    	// Dans le cas où c bon
     	
     	Tarif t1 = new Tarif(new Zone("Balcon"),Integer.parseInt(txtTarifBalcon.getText()));
     	Tarif t2 = new Tarif(new Zone("Loges"),Integer.parseInt(txtTarifLoges.getText()));
     	Tarif t3 = new Tarif(new Zone("Orchestre"),Integer.parseInt(txtTarifOrchestre.getText()));
+    	
     	for(Artiste i : listViewArtistesSelectionnés.getItems()) {
-    		artiste.add(i);
+    		artistes.add(i);
     	}
     	
-    	Spectacle spectacle = new Spectacle(txtNom.getText(),Heure.stringToInt(cbDuree.getValue()),cbGenre.getValue(),Integer.parseInt(txtNbSpec.getText()),artiste);
+    	Spectacle spectacle = new Spectacle(txtNom.getText(),Heure.stringToInt(cbDuree.getValue()),cbGenre.getValue(),Integer.parseInt(txtNbSpec.getText()),artistes);
     	
     	main.fermerSpectacle();
     	initialize();
@@ -129,7 +146,12 @@ public class CtrlSpectacle {
     public void initialize() {
     	this.reinitialiser();
     	
+    	Artiste artiste1 = new Artiste("Jean Dupont");
+        Artiste artiste2 = new Artiste("Marie Curie");
+        Artiste artiste3 = new Artiste("Ludwig Beethoven");
+    	
     	// Property False si il manque une information
+        
     	BooleanBinding manque = Bindings.or(
     		Bindings.or(
     			Bindings.or(
@@ -155,7 +177,12 @@ public class CtrlSpectacle {
     	for (int temps = 15; temps <= 3*60; temps+=15) {
     		cbDuree.getItems().add(Heure.intToString(temps));
     	}
-    	listViewArtistesSelectionnés.getItems().add(a);
+    	
+    	listViewArtistes.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+    	listViewArtistesSelectionnés.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+    	listArtistes.addAll(Artiste.liste);
+		listViewArtistes.setItems(listArtistes);
+    	
     	
     }
     

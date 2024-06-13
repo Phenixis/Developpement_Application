@@ -97,7 +97,7 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
       </VBox>
-      <VBox spacing="10.0" style="-fx-border-color: gray;">
+      <VBox alignment="CENTER" spacing="10.0" style="-fx-border-color: gray;">
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
@@ -127,8 +127,8 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
                      <children>
-                        <Button fx:id="bnDroite" mnemonicParsing="false" onAction="#clicDroite" prefWidth="50.0" text="&gt;" />
-                        <Button fx:id="bnGauche" mnemonicParsing="false" onAction="#clicGauche" prefWidth="50.0" text="&lt;" />
+                        <Button fx:id="bnDroite" mnemonicParsing="false" onAction="#selectionne" prefWidth="50.0" text="&gt;" />
+                        <Button fx:id="bnGauche" mnemonicParsing="false" onAction="#deselectionne" prefWidth="50.0" text="&lt;" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" spacing="10.0">
@@ -142,6 +142,7 @@
                   </VBox>
                </children>
             </HBox>
+            <Label fx:id="LabelErreurArtiste" text="Il n'y a aucun artiste de sélectionné" textFill="RED" />
          </children>
       </VBox>
       <HBox alignment="CENTER_RIGHT" spacing="10.0">
