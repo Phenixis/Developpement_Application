@@ -95,6 +95,7 @@ public class CtrlRepresentation {
     			Bindings.when(Bindings.or(cbSpectacle.valueProperty().isNull(), dpJour.valueProperty().isNull())).
     			then(true).otherwise(false)
     			);
+    	this.reinitialiserValeurs();
     }
 }
 

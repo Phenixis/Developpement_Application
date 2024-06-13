@@ -14,6 +14,7 @@ public class FenSpectacle extends Stage {
 		Scene laScene = new Scene(creerSceneGraph());
 		
 		this.setScene(laScene);
+//		this.setOnCloseRequest(e -> ctrl.clicAnnuler(null));
 	}
 
 	private Pane creerSceneGraph() throws IOException {
@@ -26,7 +27,6 @@ public class FenSpectacle extends Stage {
 	
 	public void afficher() {
 		this.show();
-		ctrl.initialize();
 	}
 }
 

@@ -48,9 +48,6 @@ public class CtrlSpectacle {
     @FXML private Label LabelErreurNbSpec;
     @FXML private Label LabelErreurArtiste;
     
-
-	
-    
     ObservableList<Artiste> listArtistes = FXCollections.observableArrayList();
     ObservableList<Artiste> listArtistesSelectionnes = FXCollections.observableArrayList();
     
@@ -101,13 +98,14 @@ public class CtrlSpectacle {
     	
     	Artiste.liste.clear();
     	
+    	this.initialize();
     	main.fermerSpectacle();
-    	initialize();
     }
 
     @FXML void clicAnnuler(ActionEvent event) {
+    	Artiste.liste.clear();
+    	this.initialize();
     	main.fermerSpectacle();
-    	initialize();
     }
     
     @FXML
@@ -158,16 +156,15 @@ public class CtrlSpectacle {
     	LabelErreurNbSpec.setVisible(false);
     	labelErreurTarifs.setVisible(false);
     	LabelErreurArtiste.setVisible(false);
-    	listArtistes.clear();
-    	listArtistesSelectionnes.clear();
-    	
-    	Artiste artiste1 = new Artiste("Jean Dupont");
-        Artiste artiste2 = new Artiste("Marie Curie");
-        Artiste artiste3 = new Artiste("Ludwig Beethoven");
+
     }
     
     public void initialize() {
     	this.reinitialiser();
+    	
+    	Artiste artiste1 = new Artiste("Jean Dupont");
+        Artiste artiste2 = new Artiste("Marie Curie");
+        Artiste artiste3 = new Artiste("Ludwig Beethoven");
     	
     	// Property False si il manque une information
         
@@ -187,7 +184,7 @@ public class CtrlSpectacle {
     	bnValider.disableProperty().bind(
     		Bindings.when(manque).
     		then(true).otherwise(false)
-    	);	
+    	);
     	
     	// Rempli cbGenre
     	cbGenre.getItems().addAll(Genre.liste);
@@ -196,15 +193,15 @@ public class CtrlSpectacle {
     	for (int temps = 15; temps <= 3*60; temps+=15) {
     		cbDuree.getItems().add(Heure.intToString(temps));
     	}
-    	
 
+    	// Rempli Liste des artistes
     	listViewArtistes.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     	listViewArtistesSelectionnés.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+
     	listArtistes.clear();
     	listArtistesSelectionnes.clear();
     	listArtistes.addAll(Artiste.liste);
 		listViewArtistes.setItems(listArtistes);
-		System.out.println(listViewArtistes.getItems());
     	
     }
     
@@ -215,10 +212,4 @@ public class CtrlSpectacle {
     private boolean estEntier(String str) {
     	return str.matches("\\d*");
   	}
-    
-    
-    
-    	
-
 }
-
