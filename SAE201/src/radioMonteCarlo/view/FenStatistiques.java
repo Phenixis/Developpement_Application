@@ -25,7 +25,7 @@ public class FenStatistiques extends Stage {
 	
 	public void afficher() {
 		this.show();
-		ctrl.initialize();
+		ctrl.updateListe();
 	}
 }
 

@@ -3,27 +3,30 @@ package radioMonteCarlo.model;
 import java.util.ArrayList;
 
 public class Statistique {
-	public static Statistique calculerStats(Spectacle spec) {
-		return new Statistique(spec);
-	}
+	static public ArrayList<Statistique> liste = new ArrayList<>();
 	
 	private Spectacle spectacle;
-	 String nomSpectacle; // valeur récupérée
-	private int nbRepresentation; // valeur récupérée
-	private int nbBillet=0; // valeur calculée
-	private float moyBillet=0; // valeur calculée
+	String dateRepr="test";
+	String heureRepr="test";
+	String nomSpec="test"; // valeur récupérée
+	int nbRepr=0; // valeur récupérée
+	int nbBilletTotal=0; // valeur calculée
+	int nbBilletRepr=0;
+	float moyBillet=0; // valeur calculée
 	
-	private Statistique(Spectacle spectacle) {
-		this.nomSpectacle=spectacle.getNom();
+	public Statistique(Spectacle spectacle) {
+		this.nomSpec=spectacle.getNom();
 		this.spectacle=spectacle;
 		this.update();
 		
 		this.moyBillet=moyenneBillet();
+		
+		Statistique.liste.add(this);
 	}
 	
 	public void update() {
-		this.nbRepresentation=spectacle.getRepresentations().size();
-		this.nbBillet=nombreBillet();
+		this.nbRepr=spectacle.getRepresentations().size();
+		this.nbBilletTotal=nombreBillet();
 	}
 
 	private int nombreBillet(){
@@ -38,22 +41,22 @@ public class Statistique {
 
 	private int moyenneBillet(){
 		this.update();
-		return nbBillet/nbRepresentation;
+		return nbBilletTotal/nbRepr;
 	}
 	
 	// Accesseurs
 	public String getNomSpectacle() {
-		return nomSpectacle;
+		return nomSpec;
 	}
 
 	public int getNbRepresentation() {
 		this.update();
-		return nbRepresentation;
+		return nbRepr;
 	}
 
 	public int getNbBillet() {
 		this.update();
-		return nbBillet;
+		return nbBilletTotal;
 	}
 
 	public float getMoyBillet() {
@@ -65,8 +68,8 @@ public class Statistique {
 
 	@Override
 	public String toString() {
-		return "Statistique [spectacle=" + spectacle + ", nomSpectacle=" + nomSpectacle + ", nbRepresentation="
-				+ nbRepresentation + ", nbBillet=" + nbBillet + ", moyBillet=" + moyBillet + "]";
+		return "Statistique [spectacle=" + spectacle + ", nomSpectacle=" + nomSpec + ", nbRepresentation="
+				+ nbRepr + ", nbBillet=" + nbBilletTotal + ", moyBillet=" + moyBillet + "]";
 	}
 	
 	

@@ -14,3 +14,9 @@ Prévoir de filtrer et trier ce rapport sur le nom du spectacle OU la date de re
 ## A faire
 
 faire des exceptions
+
+## Pbs
+
+Problème de fermeture avec la croix et réinitialisation
+
+Problème avec le TableView
