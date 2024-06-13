@@ -60,28 +60,28 @@ public class CtrlStatistiques {
     	new Artiste("Ludwig Beethoven");
 
     	TableColumn<Statistique,String> dateRepr = new TableColumn<Statistique,String>("Date de la représentation");
-		dateRepr.setCellValueFactory(new PropertyValueFactory<Statistique,String>("dateRepr"));
-		listStatistiques.getColumns().set(0, dateRepr);
+	dateRepr.setCellValueFactory(new PropertyValueFactory<Statistique,String>("dateRepr"));
+	listStatistiques.getColumns().set(0, dateRepr);
+	
+	TableColumn<Statistique, String> heureRepr = new TableColumn<Statistique,String>("Heure de la représentation");
+	heureRepr.setCellValueFactory(new PropertyValueFactory<Statistique, String>("heureRepr"));
+	listStatistiques.getColumns().set(1, heureRepr);
 		
-		TableColumn<Statistique, String> heureRepr = new TableColumn<Statistique,String>("Heure de la représentation");
-		heureRepr.setCellValueFactory(new PropertyValueFactory<Statistique, String>("heureRepr"));
-		listStatistiques.getColumns().set(1, heureRepr);
+	TableColumn<Statistique, String> nomSpec = new TableColumn<Statistique,String>("Nom du spectacle");
+	nomSpec.setCellValueFactory(new PropertyValueFactory<Statistique, String>("nomSpec"));
+	listStatistiques.getColumns().set(2, nomSpec);
 		
-		TableColumn<Statistique, String> nomSpec = new TableColumn<Statistique,String>("Nom du spectacle");
-		nomSpec.setCellValueFactory(new PropertyValueFactory<Statistique, String>("nomSpec"));
-		listStatistiques.getColumns().set(2, nomSpec);
+	TableColumn<Statistique,Integer> nbBilletRepr = new TableColumn<Statistique,Integer>("Nombre de billets vendus pour la représentation");
+	nbBilletRepr.setCellValueFactory(new PropertyValueFactory<Statistique, Integer>("nbBilletRepr"));
+	listStatistiques.getColumns().set(3, nbBilletRepr);
 		
-		TableColumn<Statistique,Integer> nbBilletRepr = new TableColumn<Statistique,Integer>("Nombre de billets vendus pour la représentation");
-		nbBilletRepr.setCellValueFactory(new PropertyValueFactory<Statistique, Integer>("nbBilletRepr"));
-		listStatistiques.getColumns().set(3, nbBilletRepr);
+	TableColumn<Statistique,Integer> nbRepr = new TableColumn<Statistique,Integer>("Nombre de représentation");
+	nbRepr.setCellValueFactory(new PropertyValueFactory<Statistique, Integer>("nbRepr"));
+	listStatistiques.getColumns().set(4, nbRepr);
 		
-		TableColumn<Statistique,Integer> nbRepr = new TableColumn<Statistique,Integer>("Nombre de représentation");
-		nbRepr.setCellValueFactory(new PropertyValueFactory<Statistique, Integer>("nbRepr"));
-		listStatistiques.getColumns().set(4, nbRepr);
-		
-		TableColumn<Statistique,Integer> nbBilletTotal = new TableColumn<Statistique,Integer>("Nombre de billets vendus total");
-		nbBilletTotal.setCellValueFactory(new PropertyValueFactory<Statistique, Integer>("nbBilletTotal"));
-		listStatistiques.getColumns().set(5, nbBilletTotal);
+	TableColumn<Statistique,Integer> nbBilletTotal = new TableColumn<Statistique,Integer>("Nombre de billets vendus total");
+	nbBilletTotal.setCellValueFactory(new PropertyValueFactory<Statistique, Integer>("nbBilletTotal"));
+	listStatistiques.getColumns().set(5, nbBilletTotal);
 
     	listStatistiques.setItems(liste);
     	listStatistiques.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
