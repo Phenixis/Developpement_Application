@@ -60,6 +60,12 @@ public class CtrlSpectacle {
     	}
     	listViewArtistesSelectionnés.setItems(listArtistesSelectionnes);
 		listViewArtistes.setItems(listArtistes);
+		
+		if(listArtistesSelectionnes.size() == 0) {
+			LabelErreurArtiste.setVisible(true);
+		} else {
+			LabelErreurArtiste.setVisible(false);
+		}
     }
 
     @FXML void deselectionne(ActionEvent event) {
@@ -70,6 +76,12 @@ public class CtrlSpectacle {
     	
     	listViewArtistesSelectionnés.setItems(listArtistesSelectionnes);
 		listViewArtistes.setItems(listArtistes);
+		
+		if(listArtistesSelectionnes.size() == 0) {
+			LabelErreurArtiste.setVisible(true);
+		} else {
+			LabelErreurArtiste.setVisible(false);
+		}
     }
 
     @FXML void clicValider(ActionEvent event) {
@@ -141,6 +153,7 @@ public class CtrlSpectacle {
     	cbGenre.setValue(null);
     	LabelErreurNbSpec.setVisible(false);
     	labelErreurTarifs.setVisible(false);
+    	LabelErreurArtiste.setVisible(false);
     }
     
     public void initialize() {
@@ -182,7 +195,6 @@ public class CtrlSpectacle {
     	listViewArtistesSelectionnés.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     	listArtistes.addAll(Artiste.liste);
 		listViewArtistes.setItems(listArtistes);
-    	
     	
     }
     
