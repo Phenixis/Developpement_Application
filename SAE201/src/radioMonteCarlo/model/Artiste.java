@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Artiste {
 	static public ArrayList<Artiste> liste = new ArrayList<>();
+    
 	
 	String nom;
 	
@@ -60,5 +61,9 @@ public class Artiste {
 			this.addSpectacle(spectacle);
 			return true;
 		}
+	}
+	
+	public String toString(){
+		return this.nom;
 	}
 }
