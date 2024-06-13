@@ -48,6 +48,9 @@ public class CtrlSpectacle {
     @FXML private Label LabelErreurNbSpec;
     @FXML private Label LabelErreurArtiste;
     
+
+	
+    
     ObservableList<Artiste> listArtistes = FXCollections.observableArrayList();
     ObservableList<Artiste> listArtistesSelectionnes = FXCollections.observableArrayList();
     
@@ -96,6 +99,8 @@ public class CtrlSpectacle {
     	
     	Spectacle spectacle = new Spectacle(txtNom.getText(),Heure.stringToInt(cbDuree.getValue()),cbGenre.getValue(),Integer.parseInt(txtNbSpec.getText()),artistes);
     	
+    	Artiste.liste.clear();
+    	
     	main.fermerSpectacle();
     	initialize();
     }
@@ -127,8 +132,7 @@ public class CtrlSpectacle {
     @FXML
     void appuieTarif(KeyEvent event) {
     	TextField target = (TextField) event.getTarget();
-    	
-    	if(target.getText().length() == 0) {
+    	if(target.getText() == null) {
     		if(this.erreurDecimale()) {
         		labelErreurTarifs.setVisible(false);
         	}
@@ -154,14 +158,16 @@ public class CtrlSpectacle {
     	LabelErreurNbSpec.setVisible(false);
     	labelErreurTarifs.setVisible(false);
     	LabelErreurArtiste.setVisible(false);
-    }
-    
-    public void initialize() {
-    	this.reinitialiser();
+    	listArtistes.clear();
+    	listArtistesSelectionnes.clear();
     	
     	Artiste artiste1 = new Artiste("Jean Dupont");
         Artiste artiste2 = new Artiste("Marie Curie");
         Artiste artiste3 = new Artiste("Ludwig Beethoven");
+    }
+    
+    public void initialize() {
+    	this.reinitialiser();
     	
     	// Property False si il manque une information
         
@@ -191,10 +197,14 @@ public class CtrlSpectacle {
     		cbDuree.getItems().add(Heure.intToString(temps));
     	}
     	
+
     	listViewArtistes.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     	listViewArtistesSelectionnés.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+    	listArtistes.clear();
+    	listArtistesSelectionnes.clear();
     	listArtistes.addAll(Artiste.liste);
 		listViewArtistes.setItems(listArtistes);
+		System.out.println(listViewArtistes.getItems());
     	
     }
     
