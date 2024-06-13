@@ -8,14 +8,14 @@ public class Statistique {
 	}
 	
 	private Spectacle spectacle;
-	private String nomSpectacle; // valeur récupérée
+	 String nomSpectacle; // valeur récupérée
 	private int nbRepresentation; // valeur récupérée
 	private int nbBillet=0; // valeur calculée
 	private float moyBillet=0; // valeur calculée
 	
 	private Statistique(Spectacle spectacle) {
 		this.nomSpectacle=spectacle.getNom();
-		
+		this.spectacle=spectacle;
 		this.update();
 		
 		this.moyBillet=moyenneBillet();
@@ -60,4 +60,14 @@ public class Statistique {
 		this.moyBillet = moyenneBillet();
 		return moyBillet;
 	}
+	
+	
+
+	@Override
+	public String toString() {
+		return "Statistique [spectacle=" + spectacle + ", nomSpectacle=" + nomSpectacle + ", nbRepresentation="
+				+ nbRepresentation + ", nbBillet=" + nbBillet + ", moyBillet=" + moyBillet + "]";
+	}
+	
+	
 }

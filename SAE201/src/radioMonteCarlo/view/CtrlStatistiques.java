@@ -1,6 +1,10 @@
 package radioMonteCarlo.view;
 
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.ResourceBundle;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -24,14 +28,10 @@ public class CtrlStatistiques {
     @FXML private Button bnTriSpectacle;
     @FXML private Button bnOk;
     @FXML private Label LabelDate;
-    @FXML private TableView<Statistique> listStatistiques=new TableView<>()	;
-    @FXML private TableColumn<Statistique, String> colSpectacle;
-    @FXML private TableColumn<Statistique, String> colDate;
-    @FXML private TableColumn<Statistique, String> colHeure;
-    @FXML private TableColumn<Statistique, Boolean> colAnnulation;
-    @FXML private TableColumn<Statistique, String> colBillet;
-    @FXML private TableColumn<Statistique, String> colBilletsTotal;
-    @FXML private TableColumn<Statistique, String> colNbRep;
+    @FXML  TableView<Statistique> listStatistiques=new TableView<>()	;
+    @FXML  TableColumn<Statistique, String> nomSpectacle=new TableColumn<>();
+
+  
     
     
     
@@ -46,6 +46,7 @@ public class CtrlStatistiques {
     @FXML void clicOk(ActionEvent event) {
     	main.fermerStatistiques();
     }
+   
     
     public void initialize() {
         
@@ -62,22 +63,14 @@ public class CtrlStatistiques {
     		liste.add(Statistique.calculerStats(spec));
     	}
     	
+    	nomSpectacle.setCellValueFactory(new PropertyValueFactory<Statistique,String>("nomSpectacle"));
+    	
+    	
+    	
+    	
     	System.out.println(liste);
-    	colSpectacle.setCellValueFactory(new PropertyValueFactory<Statistique,String>("colSpectacle"));
-    	colDate.setCellValueFactory(new PropertyValueFactory<Statistique,String>("colDate"));
-    	colHeure.setCellValueFactory(new PropertyValueFactory<Statistique,String>("colHeure"));
-    	colAnnulation.setCellValueFactory(new PropertyValueFactory<Statistique,Boolean>("colAnnulation"));
-    	colBillet.setCellValueFactory(new PropertyValueFactory<Statistique,String>("colBillet"));
-    	colBilletsTotal.setCellValueFactory(new PropertyValueFactory<Statistique,String>("colBilletsTotal"));
-    	colNbRep.setCellValueFactory(new PropertyValueFactory<Statistique,String>("colNbRep"));
-    	
-    	
-    	
-    	ObservableList<Statistique> ajout = FXCollections.observableArrayList(
-                liste
-        );
-    	
-    	listStatistiques.setItems(ajout);
+    	listStatistiques.getItems().addAll(liste);
+    	listStatistiques.setItems(liste);
     	
     }
 }
