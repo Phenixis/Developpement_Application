@@ -8,6 +8,8 @@ import javafx.fxml.FXMLLoader;
 
 
 public class FenRepresentation extends Stage {
+	CtrlRepresentation ctrl = new CtrlRepresentation();
+	
 	
 	public FenRepresentation() throws IOException {
 		this.setTitle("Nouvelle représentation");
@@ -19,8 +21,13 @@ public class FenRepresentation extends Stage {
      	FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/creationRepresentation.fxml"));
         Pane root = loader.load();
-        loader.getController();
+        ctrl = loader.getController();
      	return root;
+	}
+	
+	public void afficher() {
+		this.show();
+		ctrl.initialize();
 	}
 }
 
