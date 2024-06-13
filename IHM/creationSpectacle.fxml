@@ -64,21 +64,21 @@
                         <HBox alignment="CENTER_LEFT" spacing="10.0">
                            <children>
                               <Label text="Balcon :" />
-                              <TextField fx:id="txtTarifBalcon" onKeyTyped="#appuieTarifBalcon" prefHeight="25.0" prefWidth="75.0" />
+                              <TextField fx:id="txtTarifBalcon" onKeyTyped="#appuieTarif" prefHeight="25.0" prefWidth="75.0" />
                               <Label text="euros" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" spacing="10.0">
                            <children>
                               <Label text="Orchestre :" />
-                              <TextField fx:id="txtTarifOrchestre" onKeyTyped="#appuieTarifOrchestre" prefHeight="25.0" prefWidth="75.0" />
+                              <TextField fx:id="txtTarifOrchestre" onKeyTyped="#appuieTarif" prefHeight="25.0" prefWidth="75.0" />
                               <Label text="euros" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" spacing="10.0">
                            <children>
                               <Label text="Loges gauches et droites :" />
-                              <TextField fx:id="txtTarifLoges" onKeyTyped="#appuieTarifLoges" prefHeight="25.0" prefWidth="75.0" />
+                              <TextField fx:id="txtTarifLoges" onKeyTyped="#appuieTarif" prefHeight="25.0" prefWidth="75.0" />
                               <Label text="euros" />
                            </children>
                         </HBox>

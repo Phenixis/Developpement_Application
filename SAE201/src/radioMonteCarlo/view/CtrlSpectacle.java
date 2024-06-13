@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
 import javafx.event.ActionEvent;
+import javafx.event.EventTarget;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -77,8 +78,10 @@ public class CtrlSpectacle {
     
     @FXML
     void appuieTxtNbSpec(KeyEvent event) {
-    	if(this.estEntier(txtNbSpec.getText()) == false) {
-    		txtNbSpec.deletePreviousChar();
+    	if(txtNbSpec.getText().length() == 0) {
+    		LabelErreurNbSpec.setVisible(false);
+    	}
+    	else if(this.estEntier(txtNbSpec.getText()) == false) {
     		LabelErreurNbSpec.setText("Saisie incorrect, la valeur doit être numérique");
         	LabelErreurNbSpec.setVisible(true);
     	}
@@ -93,41 +96,22 @@ public class CtrlSpectacle {
     }
 
     @FXML
-    void appuieTarifBalcon(KeyEvent event) {
-    	if(this.estDecimal(txtTarifBalcon.getText()) == false) {
-    		txtTarifBalcon.deletePreviousChar();
+    void appuieTarif(KeyEvent event) {
+    	TextField target = (TextField) event.getTarget();
+    	
+    	if (target.getText() == null) {
+    	} else if(target.getText().length() == 0) {
+    		if(this.estDecimal(txtTarifBalcon.getText()) && this.estDecimal(txtTarifLoges.getText()) && this.estDecimal(txtTarifOrchestre.getText())) {
+        		labelErreurTarifs.setVisible(false);
+        	}
+    	}
+    	else if(!this.estDecimal(target.getText())) {
     		labelErreurTarifs.setText("Les tarifs doivent être numériques");
     		labelErreurTarifs.setVisible(true);
-    	}// pas fini
-    	/*else if(this.estDecimal(txtTarifBalcon.getText()) && this.estDecimal(txtTarifLoges.getText()) && this.estDecimal(txtTarifOrchestre.getText())) {
-		labelErreurTarifs.setVisible(false);
-	}*/
+    	}
+//    	
     }
 
-    @FXML
-    void appuieTarifOrchestre(KeyEvent event) {
-    	if(this.estDecimal(txtTarifOrchestre.getText()) == false) {
-    		txtTarifOrchestre.deletePreviousChar();
-    		labelErreurTarifs.setText("Les tarifs doivent être numériques");
-    		labelErreurTarifs.setVisible(true);
-    	}// pas fini
-    	/*else if(this.estDecimal(txtTarifBalcon.getText()) && this.estDecimal(txtTarifLoges.getText()) && this.estDecimal(txtTarifOrchestre.getText())) {
-		labelErreurTarifs.setVisible(false);
-	}*/
-    }
-
-    @FXML
-    void appuieTarifLoges(KeyEvent event) {
-    	if(this.estDecimal(txtTarifLoges.getText()) == false) {
-    		txtTarifLoges.deletePreviousChar();
-    		labelErreurTarifs.setText("Les tarifs doivent être numériques");
-    		labelErreurTarifs.setVisible(true);
-    	} // pas fini
-    	/*else if(this.estDecimal(txtTarifBalcon.getText()) && this.estDecimal(txtTarifLoges.getText()) && this.estDecimal(txtTarifOrchestre.getText())) {
-    		labelErreurTarifs.setVisible(false);
-    	}*/
-    }
-    
     void reinitialiser() {
     	txtTarifBalcon.setText(null);
     	txtTarifOrchestre.setText(null);
