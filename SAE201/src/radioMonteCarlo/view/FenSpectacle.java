@@ -8,7 +8,7 @@ import javafx.fxml.FXMLLoader;
 
 
 public class FenSpectacle extends Stage {
-	
+	CtrlSpectacle ctrl = new CtrlSpectacle();
 	public FenSpectacle() throws IOException {
 		this.setTitle("Nouveau Spectacle");
 		Scene laScene = new Scene(creerSceneGraph());
@@ -22,6 +22,11 @@ public class FenSpectacle extends Stage {
         Pane root = loader.load();
         loader.getController();
      	return root;
+	}
+	
+	public void afficher() {
+		this.show();
+		ctrl.initialize();
 	}
 }
 

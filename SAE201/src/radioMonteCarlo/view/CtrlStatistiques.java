@@ -8,7 +8,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import radioMonteCarlo.model.Artiste;
 import radioMonteCarlo.model.Genre;
 import radioMonteCarlo.model.Spectacle;
@@ -22,8 +24,17 @@ public class CtrlStatistiques {
     @FXML private Button bnTriSpectacle;
     @FXML private Button bnOk;
     @FXML private Label LabelDate;
-    @FXML private TableView<Statistique> listStatistiques;
-
+    @FXML private TableView<Statistique> listStatistiques=new TableView<>()	;
+    @FXML private TableColumn<Statistique, String> colSpectacle;
+    @FXML private TableColumn<Statistique, String> colDate;
+    @FXML private TableColumn<Statistique, String> colHeure;
+    @FXML private TableColumn<Statistique, Boolean> colAnnulation;
+    @FXML private TableColumn<Statistique, String> colBillet;
+    @FXML private TableColumn<Statistique, String> colBilletsTotal;
+    @FXML private TableColumn<Statistique, String> colNbRep;
+    
+    
+    
     @FXML void clicTriSpectacle(ActionEvent event) {
     	
     }
@@ -38,16 +49,12 @@ public class CtrlStatistiques {
     
     public void initialize() {
         
-    	/*ArrayList<Artiste>()
     	
     	new Artiste("Jean Dupont");
         new Artiste("Marie Curie");
         new Artiste("Ludwig Beethoven");
     	
-        new Spectacle("Jean",45,Genre.liste[0],47,);
-        new Spectacle("Jean",15,Genre.liste[2],62);
-        new Spectacle("Jean",60,Genre.liste[0],38);
-        new Spectacle("Jean",30,Genre.liste[5],25);*/
+       
     	
         System.out.println(Spectacle.list.size());
         
@@ -55,9 +62,22 @@ public class CtrlStatistiques {
     		liste.add(Statistique.calculerStats(spec));
     	}
     	
-    	LabelDate.setText(Integer.toString(Calendar.getInstance().get(Calendar.YEAR)));
+    	System.out.println(liste);
+    	colSpectacle.setCellValueFactory(new PropertyValueFactory<Statistique,String>("colSpectacle"));
+    	colDate.setCellValueFactory(new PropertyValueFactory<Statistique,String>("colDate"));
+    	colHeure.setCellValueFactory(new PropertyValueFactory<Statistique,String>("colHeure"));
+    	colAnnulation.setCellValueFactory(new PropertyValueFactory<Statistique,Boolean>("colAnnulation"));
+    	colBillet.setCellValueFactory(new PropertyValueFactory<Statistique,String>("colBillet"));
+    	colBilletsTotal.setCellValueFactory(new PropertyValueFactory<Statistique,String>("colBilletsTotal"));
+    	colNbRep.setCellValueFactory(new PropertyValueFactory<Statistique,String>("colNbRep"));
     	
-		listStatistiques.setItems(liste);
-		listStatistiques.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+    	
+    	
+    	ObservableList<Statistique> ajout = FXCollections.observableArrayList(
+                liste
+        );
+    	
+    	listStatistiques.setItems(ajout);
+    	
     }
 }

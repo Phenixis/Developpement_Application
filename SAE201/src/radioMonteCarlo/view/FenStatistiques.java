@@ -8,7 +8,7 @@ import javafx.fxml.FXMLLoader;
 
 
 public class FenStatistiques extends Stage {
-	
+	CtrlStatistiques ctrl = new CtrlStatistiques();
 	public FenStatistiques() throws IOException {
 		this.setTitle("Statistiques");
 		Scene laScene = new Scene(creerSceneGraph());
@@ -21,6 +21,11 @@ public class FenStatistiques extends Stage {
         Pane root = loader.load();
         loader.getController();
      	return root;
+	}
+	
+	public void afficher() {
+		this.show();
+		ctrl.initialize();
 	}
 }
 

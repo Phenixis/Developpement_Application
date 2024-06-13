@@ -3,6 +3,7 @@ package radioMonteCarlo.controller;
 import javafx.application.Application;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import radioMonteCarlo.view.CtrlRepresentation;
 import radioMonteCarlo.view.FenAccueil;
 import radioMonteCarlo.view.FenRepresentation;
 import radioMonteCarlo.view.FenSpectacle;
@@ -37,15 +38,16 @@ public class main extends Application {
 	}
 	
 	public static void ouvrirSpectacle() {
-		fSpectacle.show();
+		fSpectacle.afficher();
 	}
 	
 	public static void ouvrirRepresentation() {
-		fRepresentation.show();
+		fRepresentation.afficher();
 	}
 	
+	
 	public static void ouvrirStatistiques() {
-		fStatistiques.show();
+		fStatistiques.afficher();
 	}
 	
 	public static void fermerSpectacle() {
