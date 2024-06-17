@@ -1,32 +1,39 @@
 package radioMonteCarlo.model;
 
 import java.util.ArrayList;
+import javafx.beans.property.*;
+import javafx.fxml.FXML;
 
 public class Statistique {
 	static public ArrayList<Statistique> liste = new ArrayList<>();
 	
 	private Spectacle spectacle;
-	String dateRepr="test";
-	String heureRepr="test";
-	String nomSpec="test"; // valeur récupérée
-	int nbRepr=0; // valeur récupérée
-	int nbBilletTotal=0; // valeur calculée
-	int nbBilletRepr=0;
-	float moyBillet=0; // valeur calculée
+	private Representation repr;
+	StringProperty dateRepr;
+	StringProperty heureRepr;
+	StringProperty nomSpec; // valeur récupérée
+	IntegerProperty nbBilletRepr;
+	IntegerProperty nbRepr; // valeur récupérée
+	IntegerProperty nbBilletTotal; // valeur calculée
+	FloatProperty moyBillet; // valeur calculée
 	
-	public Statistique(Spectacle spectacle) {
-		this.nomSpec=spectacle.getNom();
+	public Statistique(Spectacle spectacle, Representation repr) {
 		this.spectacle=spectacle;
+		this.repr=repr;
+		this.nomSpec= new SimpleStringProperty(spectacle.getNom());
+		this.dateRepr= new SimpleStringProperty(repr.getDate());
+		this.heureRepr= new SimpleStringProperty(repr.getHeure());
+		this.nbBilletRepr= new SimpleIntegerProperty(repr.getNbBilletVendu());
 		this.update();
 		
-		this.moyBillet=moyenneBillet();
+		this.moyBillet=new SimpleFloatProperty(moyenneBillet());
 		
 		Statistique.liste.add(this);
 	}
 	
 	public void update() {
-		this.nbRepr=spectacle.getRepresentations().size();
-		this.nbBilletTotal=nombreBillet();
+		this.nbRepr=new SimpleIntegerProperty(spectacle.getRepresentations().size());
+		this.nbBilletTotal= new SimpleIntegerProperty(nombreBillet());
 	}
 
 	private int nombreBillet(){
@@ -39,32 +46,72 @@ public class Statistique {
 		return nb;
 	}	
 
-	private int moyenneBillet(){
+	private float moyenneBillet(){
 		this.update();
-		return nbBilletTotal/nbRepr;
+		return nbBilletTotal.getValue()/nbRepr.getValue();
 	}
 	
 	// Accesseurs
-	public String getNomSpectacle() {
-		return nomSpec;
+	public String getDateRepr() {
+		return dateRepr.getValue();
+	}
+	
+	public StringProperty dateReprProperty() {
+		return dateRepr;
 	}
 
-	public int getNbRepresentation() {
+	public String getHeureRepr() {
+		return heureRepr.getValue();
+	}
+	
+	public StringProperty heureReprProperty() {
+		return heureRepr;
+	}
+	
+	public String getNomSpec() {
+		return nomSpec.getValue();
+	}
+	
+	public StringProperty nomSpecProperty() {
+		return nomSpec;
+	}
+	
+	public int getNbRepr() {
+		return nbRepr.getValue();
+	}
+
+	public IntegerProperty nbReprProperty() {
 		this.update();
 		return nbRepr;
 	}
+	
+	public int getNbBilletTotal() {
+		return nbBilletTotal.getValue();
+	}
 
-	public int getNbBillet() {
+	public IntegerProperty nbBilletTotalProperty() {
 		this.update();
 		return nbBilletTotal;
 	}
+	
+	public int getNbBilletRepr() {
+		return nbBilletRepr.getValue();
+	}
 
-	public float getMoyBillet() {
-		this.moyBillet = moyenneBillet();
-		return moyBillet;
+	public IntegerProperty nbBilletReprProperty() {
+		this.update();
+		return nbBilletRepr;
 	}
 	
-	
+	public float getMoyBillet() {
+		this.moyBillet = new SimpleFloatProperty(moyenneBillet());
+		return moyBillet.getValue();
+	}
+
+	public FloatProperty moyBilletProperty() {
+		this.moyBillet = new SimpleFloatProperty(moyenneBillet());
+		return moyBillet;
+	}
 
 	@Override
 	public String toString() {
