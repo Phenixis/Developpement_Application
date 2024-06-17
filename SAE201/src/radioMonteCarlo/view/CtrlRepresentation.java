@@ -1,5 +1,6 @@
 package radioMonteCarlo.view;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import javafx.beans.binding.Bindings;
@@ -7,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import radioMonteCarlo.model.Artiste;
 import radioMonteCarlo.model.Genre;
@@ -89,6 +91,13 @@ public class CtrlRepresentation {
     			Bindings.when(cbSpectacle.valueProperty().isNull()).
     			then(true).otherwise(false)
     			);
+    	dpJour.setDayCellFactory(param -> new DateCell() {
+            @Override
+            public void updateItem(LocalDate date, boolean empty) {
+                super.updateItem(date, empty);
+                setDisable(empty || date.compareTo(LocalDate.now()) < 0 );
+            }
+        });
 
     	// Disable choix heure si Spectacle ou Jour pas choisi.
     	cbHeure.disableProperty().bind(
