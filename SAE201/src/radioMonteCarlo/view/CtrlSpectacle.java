@@ -139,6 +139,9 @@ public class CtrlSpectacle {
     		labelErreurTarifs.setText("Les tarifs doivent être numériques");
     		labelErreurTarifs.setVisible(true);
     	}
+    	else {
+    		labelErreurTarifs.setVisible(false);
+    	}
     }
     
     private boolean erreurDecimale() {
