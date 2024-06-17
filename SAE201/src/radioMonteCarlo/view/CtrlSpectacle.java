@@ -165,9 +165,9 @@ public class CtrlSpectacle {
     public void initialize() {
     	this.reinitialiser();
     	
-    	Artiste artiste1 = new Artiste("Jean Dupont");
-        Artiste artiste2 = new Artiste("Marie Curie");
-        Artiste artiste3 = new Artiste("Ludwig Beethoven");
+    	new Artiste("Jean Dupont");
+        new Artiste("Marie Curie");
+        new Artiste("Ludwig Beethoven");
     	
     	// Property False si il manque une information
         

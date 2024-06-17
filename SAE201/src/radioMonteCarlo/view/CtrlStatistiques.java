@@ -3,7 +3,6 @@ package radioMonteCarlo.view;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,7 +15,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import radioMonteCarlo.model.Artiste;
-import radioMonteCarlo.model.Genre;
 import radioMonteCarlo.model.Representation;
 import radioMonteCarlo.model.Spectacle;
 import radioMonteCarlo.model.Statistique;
@@ -46,7 +44,6 @@ public class CtrlStatistiques {
     
     void updateListe() {
     	liste.clear();
-    	
     	for(Spectacle spec : Spectacle.list) {
     		for (Representation repr : spec.getRepresentations()) {
     			liste.add(new Statistique(spec, repr));
@@ -55,15 +52,16 @@ public class CtrlStatistiques {
     	
     	System.out.println("In updateListe");
     	listStatistiques.setItems(liste);
-    	System.out.println(listStatistiques.getItems());
     	listStatistiques.refresh();
+    	System.out.println(listStatistiques.getItems());
     }
-   
     
     public void initialize() {
     	new Artiste("Jean Dupont");
     	new Artiste("Marie Curie");
     	new Artiste("Ludwig Beethoven");
+    	
+    	LabelDate.setText(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 
     	TableColumn<Statistique,String> colonne1 = new TableColumn<Statistique,String>("Date de la représentation");
     	colonne1.setCellValueFactory(new PropertyValueFactory<Statistique, String>("dateRepr"));
