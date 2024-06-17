@@ -40,9 +40,6 @@ public class CtrlStatistiques {
     	main.fermerStatistiques();
     }
     
-    void updateListe() {
-    }
-    
     public void initialize() {
     	new Artiste("Jean Dupont");
     	new Artiste("Marie Curie");
@@ -54,14 +51,18 @@ public class CtrlStatistiques {
     	date.setCellValueFactory(new PropertyValueFactory<Statistique, String>("dateRepr"));
 	
     	heure.setCellValueFactory(new PropertyValueFactory<Statistique, String>("heureRepr"));
+    	heure.setSortable(false);
 		
     	nom.setCellValueFactory(new PropertyValueFactory<Statistique, String>("nomSpec"));
 		
     	nbBilletRepr.setCellValueFactory(new PropertyValueFactory<Statistique, Integer>("nbBilletRepr"));
+    	nbBilletRepr.setSortable(false);
 		
     	nbRepr.setCellValueFactory(new PropertyValueFactory<Statistique, Integer>("nbRepr"));
+    	nbRepr.setSortable(false);
 		
     	nbBilletTotals.setCellValueFactory(new PropertyValueFactory<Statistique, Integer>("nbBilletTotal"));
+    	nbBilletTotals.setSortable(false);
 
     	for (Representation repr : Representation.list) {
     		listStatistiques.getItems().add(new Statistique(repr.getSpectacle(), repr));
