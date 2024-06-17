@@ -1,5 +1,6 @@
 package radioMonteCarlo.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javafx.application.Application;
@@ -58,7 +59,14 @@ public class main extends Application {
 	
 	
 	public static void ouvrirStatistiques() {
-		fStatistiques.afficher();
+		try {
+			
+			fStatistiques = new FenStatistiques();
+			fStatistiques.initModality(Modality.APPLICATION_MODAL);
+			fStatistiques.setResizable(false);
+			fStatistiques.afficher();
+		} catch (IOException e) {
+		}
 	}
 	
 	public static void fermerSpectacle() {

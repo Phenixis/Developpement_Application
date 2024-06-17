@@ -29,7 +29,6 @@ public class Spectacle {
         this.listeArtiste=artiste;
         
         Spectacle.list.add(this);
-        System.out.println(Spectacle.list);
     }
     
 

@@ -51,7 +51,6 @@ public class CtrlRepresentation {
     void clicValider(ActionEvent event) {
     	Representation rep = new Representation(dpJour.getValue().toString(), cbHeure.getValue(), false,cbSpectacle.getValue());
     	cbSpectacle.getValue().ajoutRepresentation(rep);
-    	//System.out.println(Representation.list);
     	
     	this.reinitialiserValeurs();
     	

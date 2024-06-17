@@ -25,7 +25,6 @@ public class Representation {
         this.nbBilletVendu = nbBilletVendu;
         
         Representation.list.add(this);
-        
     }
     
     public Representation(String date, String heure, boolean annulee, int nbBilletVendu, Spectacle spectacle) {

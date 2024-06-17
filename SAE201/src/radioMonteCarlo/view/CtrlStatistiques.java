@@ -43,23 +43,13 @@ public class CtrlStatistiques {
     }
     
     void updateListe() {
-    	liste.clear();
-    	for(Spectacle spec : Spectacle.list) {
-    		for (Representation repr : spec.getRepresentations()) {
-    			liste.add(new Statistique(spec, repr));
-    		}
-    	}
-    	
-    	System.out.println("In updateListe");
-    	listStatistiques.setItems(liste);
-    	listStatistiques.refresh();
-    	System.out.println(listStatistiques.getItems());
     }
     
     public void initialize() {
     	new Artiste("Jean Dupont");
     	new Artiste("Marie Curie");
     	new Artiste("Ludwig Beethoven");
+    	listStatistiques.setItems(liste);
     	
     	LabelDate.setText(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 
@@ -86,8 +76,11 @@ public class CtrlStatistiques {
     	TableColumn<Statistique,Integer> colonne6 = new TableColumn<Statistique,Integer>("Nombre de billets vendus total");
     	colonne6.setCellValueFactory(new PropertyValueFactory<Statistique, Integer>("nbBilletTotal"));
     	listStatistiques.getColumns().set(5, colonne6);
+
+    	for (Representation repr : Representation.list) {
+    		listStatistiques.getItems().add(new Statistique(repr.getSpectacle(), repr));
+		}
     	
-    	this.updateListe();
     	listStatistiques.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
     }
 }
