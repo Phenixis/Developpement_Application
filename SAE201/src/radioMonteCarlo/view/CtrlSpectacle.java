@@ -165,10 +165,6 @@ public class CtrlSpectacle {
     public void initialize() {
     	this.reinitialiser();
     	
-    	new Artiste("Jean Dupont");
-        new Artiste("Marie Curie");
-        new Artiste("Ludwig Beethoven");
-    	
     	// Property False si il manque une information
         
     	BooleanBinding manque = Bindings.or(

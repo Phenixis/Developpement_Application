@@ -10,13 +10,3 @@ Lot 7 :
         - le nombre de billets vendus par représentation et le total par spectacle.
 
 Prévoir de filtrer et trier ce rapport sur le nom du spectacle OU la date de représentation.
-
-## A faire
-
-faire des exceptions
-
-## Pbs
-
-Problème de fermeture avec la croix et réinitialisation
-
-Problème avec le TableView

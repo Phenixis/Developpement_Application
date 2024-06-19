@@ -41,9 +41,6 @@ public class CtrlStatistiques {
     }
     
     public void initialize() {
-    	new Artiste("Jean Dupont");
-    	new Artiste("Marie Curie");
-    	new Artiste("Ludwig Beethoven");
     	listStatistiques.setItems(liste);
     	
     	LabelDate.setText(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));

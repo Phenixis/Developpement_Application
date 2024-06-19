@@ -23,10 +23,13 @@ public class main extends Application {
 	static private FenAccueil fAccueil;
 	
 	public void start(Stage primaryStage) throws Exception {
-    	new Artiste("Jean Dupont");
-    	new Spectacle("Test", 30, Genre.liste[1], 480, Artiste.liste);
-    	new Representation("2024-05-28", "18h30", false, 666, Spectacle.list.get(0));
-    	Spectacle.list.get(0).ajoutRepresentation(Representation.list.get(0));
+    	new Artiste("Nirvana");
+    	new Artiste("Red Hot Chili Peppers");
+    	new Artiste("U2");
+    	new Artiste("Rolling Stones");
+    	new Artiste("The Beatles");
+    	new Artiste("AC/DC");
+    	new Artiste("Rolling Stones");
 		
 		fSpectacle = new FenSpectacle();
 		fRepresentation = new FenRepresentation();
